@@ -40,35 +40,55 @@
         </div>
         <div class="schedule-body">
             <div class="row text-center">
-                <div class="col-4 schedule-item">
+                <div class="col-2 schedule-item offset-1">
+                    <div class="top">
+                        <div class="img">
+                            <span><i class="fa fa-paper-plane fa-4x"></i></span>
+                        </div>
+                    </div>
+                    <div class="schedule-name"><h3>报名</h3></div>
+                    <p class="schedule-time">6月26日~9月15日</p>
+                    <p class="schedule-event">报名组队</p>
+                </div>
+                <div class="col-2 schedule-item">
                     <div class="top">
                         <div class="img">
                             <span><i class="fa fa-cube fa-4x"></i></span>
                         </div>
                     </div>
                     <div class="schedule-name"><h3>初赛</h3></div>
-                    <p class="schedule-time">6月10日~6月20日</p>
-                    <p class="schedule-event">报名组队+设计创新提案提交 评审</p>
+                    <p class="schedule-time">9月16日~10月13日</p>
+                    <p class="schedule-event">设计创新提案提交</p>
                 </div>
-                <div class="col-4 schedule-item">
+                <div class="col-2 schedule-item">
                     <div class="top">
                         <div class="img">
                             <span><i class="fa fa-cubes fa-4x"></i></span>
                         </div>
                     </div>
-                    <div class="schedule-name"><h3>复赛/决赛</h3></div>
-                    <p class="schedule-time">6月20日~6月30日</p>
-                    <p class="schedule-event">产品商业计划书提交 评审</p>
+                    <div class="schedule-name"><h3>复赛</h3></div>
+                    <p class="schedule-time">10月29日~12月29日</p>
+                    <p class="schedule-event">产品商业计划书提交</p>
                 </div>
-                <div class="col-4 schedule-item">
+                <div class="col-2 schedule-item">
+                    <div class="top">
+                        <div class="img">
+                            <span><i class="fa fa-trophy fa-4x"></i></span>
+                        </div>
+                    </div>
+                    <div class="schedule-name"><h3>决赛</h3></div>
+                    <p class="schedule-time">1月6日~1月17日</p>
+                    <p class="schedule-event">样品完成 线下答辩</p>
+                </div>
+                <div class="col-2 schedule-item">
                     <div class="top">
                         <div class="img">
                             <span><i class="fa fa-users fa-4x"></i></span>
                         </div>
                     </div>
-                    <div class="schedule-name"><h3>十强</h3></div>
-                    <p class="schedule-time">7月1日~7月10日</p>
-                    <p class="schedule-event">十强路演</p>
+                    <div class="schedule-name"><h3>创业面试</h3></div>
+                    <p class="schedule-time">1月18日~1月18日</p>
+                    <p class="schedule-event">线下面试</p>
                 </div>
             </div>
         </div>

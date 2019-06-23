@@ -12,9 +12,9 @@ Route::group([
 
     $router->get('/', 'HomeController@index');
     $router->get('users', 'UsersController@index');
-    $router->get('compaigns', 'CompaignsController@index');
-    $router->get('compaigns/create', 'CompaignsController@create');
-    $router->post('compaigns', 'CompaignsController@store');
-    $router->get('compaigns/{id}/edit', 'CompaignsController@edit');
-    $router->put('compaigns/{id}', 'CompaignsController@update');
+    $router->get('campaigns', 'CampaignsController@index');
+    $router->get('campaigns/create', 'CampaignsController@create');
+    $router->post('campaigns', 'CampaignsController@store');
+    $router->get('campaigns/{id}/edit', 'CampaignsController@edit');
+    $router->put('campaigns/{id}', 'CampaignsController@update');
 });

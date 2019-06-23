@@ -50,7 +50,7 @@
                     <h5>公众号</h5>
                 </div>
                 <div>
-                    <img src="capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
+                    <img src="{{ env('APP_URL') }}/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
                 </div>
             </div>
             <div class="col-lg-2 text-center">
@@ -58,13 +58,13 @@
                     <h5>微博</h5>
                 </div>
                 <div>
-                    <img src="capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
+                    <img src="{{ env('APP_URL') }}/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
                 </div>
             </div>
         </div>
         <div class="row mt-4">
             <div class="col-lg-12 text-center">
-                Copyright © 2018-2019 CAPINNO All Right Reserved
+                Copyright © 2018-2019 CAPINNO All Rights Reserved
             </div>
         </div>
         <div class="row mt-2">

@@ -16,6 +16,11 @@
 body {
   font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
   font-size: 14px;
+  .form-control::-webkit-input-placeholder {color: #ced4da;}
+  .form-control::-moz-placeholder {color: #ced4da;}
+  .form-control:-ms-input-placeholder {color: #ced4da;}
+  .form-control::-ms-input-placeholder {color: #ced4da;}
+  .form-control::placeholder {color: #ced4da;}
 }
 
 /* header */
@@ -34,6 +39,14 @@ body {
 }
 .nav-item {
   font-size: 18px;
+  .name {
+    max-width: 220px;
+    overflow: hidden;
+    -ms-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+  }
 }
 
 /* Sticky footer styles */
@@ -134,5 +147,16 @@ body {
     -webkit-box-shadow: 4px 4px 4px 0px #ccc;
     -moz-box-shadow: 4px 4px 4px 0px #ccc;
     box-shadow: 4px 4px 4px 0px #ccc;
+  }
+}
+
+.user_signs-show-page {
+  input {
+    cursor: not-allowed;
+    color: #ced4da;
+  }
+  select {
+    cursor: not-allowed;
+    color: #ced4da;
   }
 }

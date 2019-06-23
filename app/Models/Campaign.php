@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Compaign extends Model
+class Campaign extends Model
 {
     protected $fillable = [
         'title',

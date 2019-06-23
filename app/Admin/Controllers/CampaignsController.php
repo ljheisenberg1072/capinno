@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Compaign;
+use App\Models\Campaign;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\HasResourceActions;
 use Encore\Admin\Form;
@@ -10,7 +10,7 @@ use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
-class CompaignsController extends Controller
+class CampaignsController extends Controller
 {
     use HasResourceActions;
 
@@ -75,7 +75,7 @@ class CompaignsController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Compaign);
+        $grid = new Grid(new Campaign);
 
         $grid->id('ID')->sortable();
         $grid->title('大赛名称');
@@ -105,7 +105,7 @@ class CompaignsController extends Controller
      */
     protected function detail($id)
     {
-        $show = new Show(Compaign::findOrFail($id));
+        $show = new Show(Campaign::findOrFail($id));
 
         $show->id('Id');
         $show->title('Title');
@@ -123,7 +123,7 @@ class CompaignsController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Compaign);
+        $form = new Form(new Campaign);
 
         $form->text('title', '大赛名称')->rules('required');
         $form->radio('on_hold', '正在举行')->options(['1' => '是', '0' => '否'])->default('0');

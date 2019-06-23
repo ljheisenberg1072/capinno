@@ -2,10 +2,10 @@
 
 /* @var $factory \Illuminate\Database\Eloquent\Factory */
 
-use App\Models\Compaign;
+use App\Models\Campaign;
 use Faker\Generator as Faker;
 
-$factory->define(Compaign::class, function (Faker $faker) {
+$factory->define(Campaign::class, function (Faker $faker) {
     return [
         //
     ];
