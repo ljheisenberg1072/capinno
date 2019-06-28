@@ -270,7 +270,11 @@
                             </div>
                             <div class="form-group row text-center">
                                 <div class="col-12">
-                                    <button type="submit" class="btn btn-primary">确认提交</button>
+                                    @if($user_sign->id)
+                                        <button type="submit" class="btn btn-primary">确认修改</button>
+                                    @else
+                                        <button type="submit" class="btn btn-primary">确认提交</button>
+                                    @endif
                                 </div>
                             </div>
                         </form>

@@ -7,6 +7,7 @@ use App\Models\Campaign;
 use Illuminate\Http\Request;
 use App\Models\UserSign;
 use App\Http\Requests\UserSignRequest;
+use App\Exceptions\InvalidRequestException;
 
 class UserSignsController extends Controller
 {
@@ -18,6 +19,10 @@ class UserSignsController extends Controller
     public function create()
     {
         $campaign_id = Campaign::query()->where('on_hold', 1)->orderBy('created_at','desc')->value('id');
+        //  判断用户是否已经报名当前大赛
+        if(UserSign::query()->where('campaign_id', $campaign_id)->where('user_id', Auth::user()->id)->exists()) {
+            throw new InvalidRequestException('你已报名该大赛，请勿重复报名！');
+        }
         return view('user_signs.create_and_edit', ['user_sign' => new UserSign(), 'campaign_id' => $campaign_id]);
     }
 
