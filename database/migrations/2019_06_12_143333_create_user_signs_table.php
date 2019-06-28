@@ -30,8 +30,8 @@ class CreateUserSignsTable extends Migration
             $table->string('leader_email');
             $table->string('working_company');
             $table->string('team_name');
-            $table->text('other_member');
-            $table->text('guide_teacher')->nullable();
+            $table->text('other_members');
+            $table->text('guide_teachers')->nullable();
             $table->timestamps();
         });
     }

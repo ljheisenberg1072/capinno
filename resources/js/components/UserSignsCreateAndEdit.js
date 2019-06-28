@@ -10,6 +10,7 @@ Vue.component('user-signs-create-and-edit', {
             city: '', // 市
         }
     },
+
     methods: {
         // 把参数 val 中的值保存到组件的数据中
         onSchoolChanged(val) {

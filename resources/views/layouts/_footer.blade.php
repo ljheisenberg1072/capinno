@@ -32,7 +32,7 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="col-lg-12">
-                        <h5>关于CAPINNO创+</h5>
+                        <h5>关于CAPINNO</h5>
                     </div>
                     <div class="col-lg-12 mt-2">
                         <a href="#">FOODAILY每日食品</a>

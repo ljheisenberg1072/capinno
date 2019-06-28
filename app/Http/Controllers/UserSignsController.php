@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
+use App\Models\Campaign;
 use Illuminate\Http\Request;
 use App\Models\UserSign;
 use App\Http\Requests\UserSignRequest;
@@ -15,10 +17,11 @@ class UserSignsController extends Controller
 
     public function create()
     {
-        return view('user_signs.create_and_edit', ['user_sign' => new UserSign()]);
+        $campaign_id = Campaign::query()->where('on_hold', 1)->orderBy('created_at','desc')->value('id');
+        return view('user_signs.create_and_edit', ['user_sign' => new UserSign(), 'campaign_id' => $campaign_id]);
     }
 
-    public function store(UserSignRequest $request)
+    public function store(UserSign $user_sign, UserSignRequest $request)
     {
         $request->user()->userSigns()->create($request->only([
             'campaign_id',
@@ -27,18 +30,18 @@ class UserSignsController extends Controller
             'identity',
             'school_province',
             'school_city',
-            'school_name',
+            'school',
             'province',
             'city',
             'address',
             'leader_email',
             'working_company',
             'team_name',
-            'other_member',
-            'guide_teacher',
+            'other_members',
+            'guide_teachers',
         ]));
 
-        return redirect()->route('user_signs.index');
+        return redirect()->route('user_signs.show', ['user_sign' => $user_sign->id]);
     }
 
     public function show(UserSign $user_sign)
@@ -51,7 +54,8 @@ class UserSignsController extends Controller
     {
         $this->authorize('own', $user_sign);
 
-        return view('user_signs.create_and_edit', ['user_sign' => $user_sign]);
+        $campaign_id = Campaign::query()->where('on_hold', 1)->orderBy('created_at','desc')->value('id');
+        return view('user_signs.create_and_edit', ['user_sign' => $user_sign, 'campaign_id' => $campaign_id]);
     }
 
     public function update(UserSign $user_sign, UserSignRequest $request)
@@ -65,17 +69,18 @@ class UserSignsController extends Controller
             'identity',
             'school_province',
             'school_city',
-            'school_name',
+            'school',
             'province',
             'city',
             'address',
             'leader_email',
             'working_company',
             'team_name',
-            'other_member',
-            'guide_teacher',
+            'other_members',
+            'guide_teachers',
         ]));
 
-        return redirect()->route('user_signs.index');
+        return redirect()->route('user_signs.show', ['user_sign' => $user_sign->id]);
     }
+
 }

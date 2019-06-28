@@ -24,6 +24,8 @@ window.Vue = require('vue');
 
 require('./components/SelectSchool');
 require('./components/SelectCity');
+require('./components/UserSignsMember');
+require('./components/UserSignsTeacher');
 require('./components/UserSignsCreateAndEdit');
 
 /**

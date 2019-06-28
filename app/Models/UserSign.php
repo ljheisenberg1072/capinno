@@ -20,17 +20,18 @@ class UserSign extends Model
         'leader_email',
         'working_company',
         'team_name',
-        'other_member',
-        'guide_teacher',
+        'other_members',
+        'guide_teachers',
     ];
+    protected $casts = [
+        'other_members'  => 'json',
+        'guide_teachers' => 'json',
+    ];
+
     //  与大赛关联
     public function campaign()
     {
         return $this->belongsTo(Campaign::class);
     }
 
-    public function getFullAddressAttribute()
-    {
-        return "{$this->province}{$this->city}{$this->address}";
-    }
 }

@@ -18,7 +18,7 @@
             <ul class="navbar-nav navbar-right">
                 <!-- 登录注册开始 -->
                 @guest
-                <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">报名参赛</a></li>
+                <a href="{{ route('login') }}" class="nav-item btn btn-primary mr-3">报名参赛</a>
                 <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">登录</a></li>
                 <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">注册</a></li>
                 @else

@@ -11,7 +11,7 @@ Vue.component('select-school', {
         initValue: {
             type: Array, // 格式是数组
             default: () => ([]), // 默认是个空数组
-        }
+        },
     },
     // 定义了这个组件内的数据
     data() {
@@ -22,6 +22,7 @@ Vue.component('select-school', {
             provinceId: '', // 当前选中的省
             cityId: '', // 当前选中的市
             schoolId: '', // 当前选中的学校
+            school: '',// 自己填写的学校
         };
     },
     // 定义观察器，对应属性变更时会触发对应的观察器函数
@@ -47,11 +48,16 @@ Vue.component('select-school', {
                 this.schoolId = '';
                 return;
             }
-            // 将学校列表设为当前城市下的学校
-            this.schools = schoolData[newVal];
-            // 如果当前选中的学校不在当前城市下，则将选中学校清空
-            if (!this.schools[this.schoolId]) {
-                this.schoolId = '';
+            //  香港、澳门、台湾、海外的高校无学校列表
+            if (newVal == '420100' || newVal == '430100' || newVal == '440100' || newVal == '450100') {
+                this.$emit('change', [this.provinces[this.provinceId], this.cities[this.cityId], this.school]);
+            }else {
+                // 将学校列表设为当前城市下的学校
+                this.schools = schoolData[newVal];
+                // 如果当前选中的学校不在当前城市下，则将选中学校清空
+                if (!this.schools[this.schoolId]) {
+                    this.schoolId = '';
+                }
             }
         },
         // 当选择的学校发生改变时触发
@@ -93,16 +99,19 @@ Vue.component('select-school', {
             }
             // 找到了，将当前城市设置成对应的ID
             this.cityId = cityId;
-            // 由于观察器的作用，这个时候学校列表已经变成了对应城市的学校列表
-            // 从当前学校列表找到与数组第三个元素同名的项的索引
-            const schoolId = _.findKey(schoolData[cityId], o => o === value[2]);
-            // 没找到，清空学校的值
-            if (!schoolId) {
-                this.schoolId = '';
-                return;
+            // 香港、澳门、台湾、海外的高校无法设置ID
+            if(cityId != '420100' && cityId != '430100' && cityId != '440100' && cityId != '450100') {
+                // 由于观察器的作用，这个时候学校列表已经变成了对应城市的学校列表
+                // 从当前学校列表找到与数组第三个元素同名的项的索引
+                const schoolId = _.findKey(schoolData[cityId], o => o === value[2]);
+                // 没找到，清空学校的值
+                if (!schoolId) {
+                    this.schoolId = '';
+                    return;
+                }
+                // 找到了，将当前地区设置成对应的ID
+                this.schoolId = schoolId;
             }
-            // 找到了，将当前地区设置成对应的ID
-            this.schoolId = schoolId;
         }
     }
 });
