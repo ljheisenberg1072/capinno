@@ -35,7 +35,7 @@ body {
   border-bottom: 1px solid #e8e8e8;
   margin-bottom: 40px;
   margin-top: 0px;
-  height: 85px;
+  min-height: 85px;
 }
 .nav-item {
   font-size: 18px;
@@ -104,6 +104,9 @@ body {
   }
    .schedule-name {
      padding-top: 20px;
+     padding-bottom: 5px;
+     font-size: 1.1rem;
+     font-weight: bold;
    }
   .judge-header, .news-header {
     padding: 100px 0px 50px 0px;
@@ -147,6 +150,9 @@ body {
     -webkit-box-shadow: 4px 4px 4px 0px #ccc;
     -moz-box-shadow: 4px 4px 4px 0px #ccc;
     box-shadow: 4px 4px 4px 0px #ccc;
+  }
+  .w-100 {
+    max-height: 600px;
   }
 }
 

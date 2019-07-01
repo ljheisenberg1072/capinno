@@ -6,29 +6,19 @@
     <div class="col-lg-12">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                @foreach($carousels as $key => $carousel)
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{ $key }}" @if($key == 0) class="active" @endif></li>
+                @endforeach
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <a href="#"><img class="d-block w-100" src="banner.png" alt="First slide"></a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>First slide</p>
+                @foreach($carousels as $key => $carousel)
+                    <div class="carousel-item @if($key == 0) active @endif">
+                        <a href="{{ $carousel->link }}"><img class="d-block w-100" src="{{ $carousel->carousel_image }}" alt="{{ $carousel->title }}"></a>
+                        <div class="carousel-caption d-none d-md-block">
+                            <p>{{ $carousel->title }}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="carousel-item">
-                    <a href="#"><img class="d-block w-100" src="banner.png" alt="Second slide"></a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>Second slide</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <a href="#"></a><img class="d-block w-100" src="banner.png" alt="Third slide"></a>
-                    <div class="carousel-caption d-none d-md-block">
-                        <p>Third slide</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -46,9 +36,9 @@
                             <span><i class="fa fa-paper-plane fa-4x"></i></span>
                         </div>
                     </div>
-                    <div class="schedule-name"><h3>报名</h3></div>
-                    <p class="schedule-time">6月26日~9月15日</p>
-                    <p class="schedule-event">报名组队</p>
+                    <div class="schedule-name">初赛</div>
+                    <p class="schedule-time">9月16日~10月13日</p>
+                    <p class="schedule-event">设计创意提案提交 评审</p>
                 </div>
                 <div class="col-2 schedule-item">
                     <div class="top">
@@ -56,9 +46,9 @@
                             <span><i class="fa fa-cube fa-4x"></i></span>
                         </div>
                     </div>
-                    <div class="schedule-name"><h3>初赛</h3></div>
-                    <p class="schedule-time">9月16日~10月13日</p>
-                    <p class="schedule-event">设计创新提案提交</p>
+                    <div class="schedule-name">复赛</div>
+                    <p class="schedule-time">10月28日~11月29日</p>
+                    <p class="schedule-event">产品商业计划书提交 评审</p>
                 </div>
                 <div class="col-2 schedule-item">
                     <div class="top">
@@ -66,9 +56,9 @@
                             <span><i class="fa fa-cubes fa-4x"></i></span>
                         </div>
                     </div>
-                    <div class="schedule-name"><h3>复赛</h3></div>
-                    <p class="schedule-time">10月29日~12月29日</p>
-                    <p class="schedule-event">产品商业计划书提交</p>
+                    <div class="schedule-name">决赛答辩</div>
+                    <p class="schedule-time">2020年1月</p>
+                    <p class="schedule-event">样品提交 + 决赛现场答辩</p>
                 </div>
                 <div class="col-2 schedule-item">
                     <div class="top">
@@ -76,9 +66,9 @@
                             <span><i class="fa fa-trophy fa-4x"></i></span>
                         </div>
                     </div>
-                    <div class="schedule-name"><h3>决赛</h3></div>
-                    <p class="schedule-time">1月6日~1月17日</p>
-                    <p class="schedule-event">样品完成 线下答辩</p>
+                    <div class="schedule-name">创业面试</div>
+                    <p class="schedule-time">2020年1月</p>
+                    <p class="schedule-event">创业营选拔</p>
                 </div>
                 <div class="col-2 schedule-item">
                     <div class="top">
@@ -86,9 +76,9 @@
                             <span><i class="fa fa-users fa-4x"></i></span>
                         </div>
                     </div>
-                    <div class="schedule-name"><h3>创业面试</h3></div>
-                    <p class="schedule-time">1月18日~1月18日</p>
-                    <p class="schedule-event">线下面试</p>
+                    <div class="schedule-name">商业路演 & 总决赛</div>
+                    <p class="schedule-time">2020年4月</p>
+                    <p class="schedule-event">FBIC 现场路演</p>
                 </div>
             </div>
         </div>

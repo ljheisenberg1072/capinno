@@ -36,7 +36,7 @@
                              {{ method_field('PUT') }}
                         @else
                         <form class="form-horizontal" role="form" action="{{ route('user_signs.store') }}}" method="post">
-                        @endif
+                         @endif
                             {{ csrf_field() }}
                             <input type="hidden" name="campaign_id" value="1">
                             <div class="form-group row">
