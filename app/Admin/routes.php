@@ -22,4 +22,14 @@ Route::group([
     $router->post('carousels', 'CarouselsController@store');
     $router->get('carousels/{id}/edit', 'CarouselsController@edit');
     $router->get('carousels/{id}', 'CarouselsController@update');
+    $router->get('news_categories', 'NewsCategoriesController@index');
+    $router->get('news_categories/create', 'NewsCategoriesController@create');
+    $router->post('news_categories', 'NewsCategoriesController@store');
+    $router->get('news_categories/{id}/edit', 'NewsCategoriesController@edit');
+    $router->put('news_categories/{id}', 'NewsCategoriesController@update');
+    $router->get('news_articles', 'NewsArticlesController@index');
+    $router->get('news_articles/create', 'NewsArticlesController@create');
+    $router->post('news_articles', 'NewsArticlesController@store');
+    $router->get('news_articles/{id}/edit', 'NewsArticlesController@edit');
+    $router->put('news_articles/{id}', 'NewsArticlesController@update');
 });

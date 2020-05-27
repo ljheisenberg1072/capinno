@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
 use App\Models\Campaign;
-use Illuminate\Http\Request;
 use App\Models\UserSign;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UserSignRequest;
 use App\Exceptions\InvalidRequestException;
 

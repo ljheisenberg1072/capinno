@@ -82,7 +82,7 @@
                                             <option value="">请选择学校</option>
                                             <option v-for="(name, id) in schools" :value="id">@{{ name }}</option>
                                         </select>
-                                        <input class="form-control" type="text" name="school" value="{{ old('school', $user_sign->school) }}" placeholder="请输入学校">
+                                        <input v-else class="form-control" type="text" name="school" value="{{ old('school', $user_sign->school) }}" placeholder="请输入学校">
                                     </div>
                                 </div>
                             </select-school>

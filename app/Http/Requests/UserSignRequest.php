@@ -39,7 +39,7 @@ class UserSignRequest extends Request
             'leader_email'      => '队长邮箱',
             'working_company'   => '就职单位',
             'team_name'         => '团队名',
-            'other_members'      => '其他队员',
+            'other_members'     => '其他队员',
         ];
     }
 }
