@@ -799,11 +799,6 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
-"@fortawesome/fontawesome-free@^5.9.0":
-  version "5.13.0"
-  resolved "https://registry.npm.taobao.org/@fortawesome/fontawesome-free/download/@fortawesome/fontawesome-free-5.13.0.tgz#fcb113d1aca4b471b709e8c9c168674fbd6e06d9"
-  integrity sha1-/LET0ayktHG3CejJwWhnT71uBtk=
-
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
   resolved "https://registry.npm.taobao.org/@mrmlnc/readdir-enhanced/download/@mrmlnc/readdir-enhanced-2.2.1.tgz#524af240d1a360527b730475ecfa1344aa540dde"
@@ -6818,6 +6813,11 @@ websocket-driver@>=0.5.1:
     http-parser-js ">=0.4.0 <0.4.11"
     safe-buffer ">=5.1.0"
     websocket-extensions ">=0.1.1"
+
+websocket-extensions@0.1.4:
+  version "0.1.4"
+  resolved "https://registry.npm.taobao.org/websocket-extensions/download/websocket-extensions-0.1.4.tgz#7f8473bc839dfd87608adb95d7eb075211578a42"
+  integrity sha1-f4RzvIOd/YdgituV1+sHUhFXikI=
 
 websocket-extensions@>=0.1.1:
   version "0.1.3"
