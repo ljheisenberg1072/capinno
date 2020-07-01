@@ -50,7 +50,7 @@
                     <h5>公众号</h5>
                 </div>
                 <div>
-                    <img src="{{ env('APP_URL') }}/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
+                    <img src="/images/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
                 </div>
             </div>
             <div class="col-lg-2 text-center">
@@ -58,7 +58,7 @@
                     <h5>微博</h5>
                 </div>
                 <div>
-                    <img src="{{ env('APP_URL') }}/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
+                    <img src="/images/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
                 </div>
             </div>
         </div>

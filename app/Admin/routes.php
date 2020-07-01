@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Router;
 
-Admin::registerAuthRoutes();
+Admin::routes();
 
 Route::group([
     'prefix'        => config('admin.route.prefix'),
@@ -10,7 +10,7 @@ Route::group([
     'middleware'    => config('admin.route.middleware'),
 ], function (Router $router) {
 
-    $router->get('/', 'HomeController@index');
+    $router->get('/', 'HomeController@index')->name('admin.home');
     $router->get('users', 'UsersController@index');
     $router->get('campaigns', 'CampaignsController@index');
     $router->get('campaigns/create', 'CampaignsController@create');
@@ -20,8 +20,10 @@ Route::group([
     $router->get('carousels', 'CarouselsController@index');
     $router->get('carousels/create', 'CarouselsController@create');
     $router->post('carousels', 'CarouselsController@store');
+    $router->get('carousels/{id}', 'CarouselsController@show');
     $router->get('carousels/{id}/edit', 'CarouselsController@edit');
-    $router->get('carousels/{id}', 'CarouselsController@update');
+    $router->put('carousels/{id}', 'CarouselsController@update');
+    $router->delete('carousels/{id}', 'CarouselsController@destroy');
     $router->get('news_categories', 'NewsCategoriesController@index');
     $router->get('news_categories/create', 'NewsCategoriesController@create');
     $router->post('news_categories', 'NewsCategoriesController@store');
@@ -32,4 +34,6 @@ Route::group([
     $router->post('news_articles', 'NewsArticlesController@store');
     $router->get('news_articles/{id}/edit', 'NewsArticlesController@edit');
     $router->put('news_articles/{id}', 'NewsArticlesController@update');
+    $router->delete('news_articles/{id}', 'NewsArticlesController@destroy');
+
 });

@@ -7,16 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Capinno') - CAPINNO</title>
+    <title>@yield('title', 'CAPINNO') - CAPINNO</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
     <!-- Style -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="/iconfont/iconfont.css">
 </head>
 <body>
     <div id="app" class="{{ route_class() }}-page">
         @include('layouts._header')
-        <div class="container">
+        <main>
             @yield('content')
-        </div>
+        </main>
         @include('layouts._footer')
     </div>
     <!-- JavaScripts -->

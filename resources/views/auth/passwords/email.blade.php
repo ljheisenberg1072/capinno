@@ -1,47 +1,63 @@
 @extends('layouts.app')
+@section('title', '重设密码')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
-
-                <div class="card-body">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="password-request-wrapper">
+                <div class="password-request-container">
+                    <p class="password-request-type-item">{{ __('Reset Password') }}<span class="password-request-type-line"></span></p>
                     @if (session('status'))
-                        <div class="alert alert-success" role="alert">
+                        <div class="alert alert-success mt-3" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
-                    <form method="POST" action="{{ route('password.email') }}">
+                    <form method="POST" action="{{ route('password.email') }}" id="password-request-form">
                         @csrf
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="mt-5">
+                            <div class="emailWrapper mb-5">
+                                <p class="inputText">{{ __('E-Mail Address') }}</p>
+                                <div class="inputBox @error('email') alert @enderror">
+                                    <input type="text" id="email" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                    <p class="inputAlert hasTitle">@if($errors->has('email')) {{ $errors->first('email') }}@else{{ __('Please Type Correct') }}{{ __('E-Mail Address') }}@endif</p>
+                                </div>
                             </div>
                         </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
-                                </button>
-                            </div>
-                        </div>
+                        <div class="password-request-btn">{{ __('Send Password Reset Link') }}</div>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function() {
+
+            //  password reset
+            if($('#email').val()) {
+                $('#email').parent().prev().addClass('inputTextFocus');
+            }
+            $('#email').focusin(function() {
+                $(this).parent().prev().addClass('inputTextFocus');
+                $(this).parent().removeClass('alert');
+            });
+            $('#email').focusout(function() {
+                if(!$(this).val()) {
+                    $(this).parent().prev().removeClass('inputTextFocus');
+                    $(this).parent().addClass('alert');
+                }
+            });
+
+            //  login button event
+            $('.password-request-btn').click(function() {
+                if(!$('#email').val()) {
+                    $('.emailWrapper .inputBox').addClass('alert');
+                    return false;
+                }
+                $('#password-request-form').submit();
+            });
+        });
+    </script>
+@stop

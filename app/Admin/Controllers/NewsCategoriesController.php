@@ -3,55 +3,19 @@
 namespace App\Admin\Controllers;
 
 use App\Models\NewsCategory;
-use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\HasResourceActions;
+use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
+use Encore\Admin\Show;
 
-class NewsCategoriesController extends Controller
+class NewsCategoriesController extends AdminController
 {
-    use HasResourceActions;
-
     /**
-     * Index interface.
+     * Title for current resource.
      *
-     * @param Content $content
-     * @return Content
+     * @var string
      */
-    public function index(Content $content)
-    {
-        return $content
-            ->header('新闻动态分类列表')
-            ->body($this->grid());
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param mixed $id
-     * @param Content $content
-     * @return Content
-     */
-    public function edit($id, Content $content)
-    {
-        return $content
-            ->header('编辑新闻动态分类')
-            ->body($this->form()->edit($id));
-    }
-
-    /**
-     * Create interface.
-     *
-     * @param Content $content
-     * @return Content
-     */
-    public function create(Content $content)
-    {
-        return $content
-            ->header('创建新闻动态分类')
-            ->body($this->form());
-    }
+    protected $title = '新闻分类列表';
 
     /**
      * Make a grid builder.
@@ -60,27 +24,35 @@ class NewsCategoriesController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new NewsCategory);
+        $grid = new Grid(new NewsCategory());
 
-        $grid->id('分类ID');
-        $grid->name('分类名称');
-        $grid->order('分类排序');
-        $grid->created_at('添加时间');
-        $grid->updated_at('修改时间');
-
-        $grid->actions(function ($actions) {
-            $actions->disableView();
-            $actions->disableDelete();
-        });
-        $grid->tools(function ($tools) {
-           $tools->batch(function ($batch) {
-               $batch->disableDelete();
-           });
-        });
+        $grid->column('id', __('Id'));
+        $grid->column('name', __('Name'));
+        $grid->column('order', __('Order'));
+        $grid->column('created_at', __('Created at'));
+        $grid->column('updated_at', __('Updated at'));
 
         return $grid;
     }
 
+    /**
+     * Make a show builder.
+     *
+     * @param mixed $id
+     * @return Show
+     */
+    protected function detail($id)
+    {
+        $show = new Show(NewsCategory::findOrFail($id));
+
+        $show->field('id', __('Id'));
+        $show->field('name', __('Name'));
+        $show->field('order', __('Order'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
+
+        return $show;
+    }
 
     /**
      * Make a form builder.
@@ -89,10 +61,10 @@ class NewsCategoriesController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new NewsCategory);
+        $form = new Form(new NewsCategory());
 
-        $form->text('name', '分类名称')->rules('required');
-        $form->text('order', '分类排序')->rules('required|numeric|min:0')->default('0');
+        $form->text('name', __('Name'));
+        $form->number('order', __('Order'));
 
         return $form;
     }

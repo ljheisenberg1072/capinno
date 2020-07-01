@@ -13,9 +13,13 @@
 
 Route::get('/', 'PagesController@root')->name('root');
 
+Route::get('carousels', 'UserSignsController@index')->name('carousels.index');
+Route::get('carousels/{carousel}', 'UserSignsController@show')->name('carousels.show');
+
 Auth::routes(['verify' => true]);
 
-Route::group(['middleware' => ['auth', 'verified']], function () {
+// auth 中间件代表需要登录，verified中间件代表需要经过邮箱验证
+Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('my_campaigns', 'MyCampaignsController@index')->name('my_campaigns.index');
     Route::get('user_signs', 'UserSignsController@index')->name('user_signs.index');
     Route::get('user_signs/create', 'UserSignsController@create')->name('user_signs.create');

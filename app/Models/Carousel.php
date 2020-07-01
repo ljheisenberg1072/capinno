@@ -30,4 +30,14 @@ class Carousel extends Model
 
         return Storage::disk('public')->url($this->attributes['image']);
     }
+
+    public function getLinkUrlAttribute()
+    {
+        //  如果 link 字段本身就已经是完整的 url 就直接返回
+        if (Str::startsWith($this->attributes['link'], ['http://', 'https://'])) {
+            return $this->attributes['link'];
+        }
+
+        return "http://".$this->attributes['link'];
+    }
 }

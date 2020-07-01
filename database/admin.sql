@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.7.22, for Linux (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.24, for Linux (x86_64)
 --
 -- Host: 127.0.0.1    Database: capinno
 -- ------------------------------------------------------
--- Server version	5.7.22-0ubuntu18.04.1
+-- Server version	5.7.24-0ubuntu0.18.04.1
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -21,7 +21,7 @@
 
 LOCK TABLES `admin_menu` WRITE;
 /*!40000 ALTER TABLE `admin_menu` DISABLE KEYS */;
-INSERT INTO `admin_menu` VALUES (1,0,1,'首页','fa-bar-chart','/',NULL,NULL,'2019-06-09 23:58:49'),(2,0,4,'系统管理','fa-tasks',NULL,NULL,NULL,'2019-06-10 00:55:04'),(3,2,5,'管理员','fa-users','auth/users',NULL,NULL,'2019-06-10 00:55:04'),(4,2,6,'角色','fa-user','auth/roles',NULL,NULL,'2019-06-10 00:55:04'),(5,2,7,'权限','fa-ban','auth/permissions',NULL,NULL,'2019-06-10 00:55:04'),(6,2,8,'菜单','fa-bars','auth/menu',NULL,NULL,'2019-06-10 00:55:04'),(7,2,9,'操作日志','fa-history','auth/logs',NULL,NULL,'2019-06-10 00:55:04'),(8,0,3,'用户管理','fa-users','/users',NULL,'2019-06-10 00:18:30','2019-06-10 00:55:04'),(9,0,2,'大赛管理','fa-cubes','/compaigns',NULL,'2019-06-10 00:54:54','2019-06-10 00:55:04');
+INSERT INTO `admin_menu` VALUES (1,0,1,'首页','fa-bar-chart','/',NULL,NULL,'2019-06-09 23:58:49'),(2,0,6,'系统管理','fa-tasks',NULL,NULL,NULL,'2019-12-13 12:49:34'),(3,2,7,'管理员','fa-users','auth/users',NULL,NULL,'2019-12-13 12:49:34'),(4,2,8,'角色','fa-user','auth/roles',NULL,NULL,'2019-12-13 12:49:34'),(5,2,9,'权限','fa-ban','auth/permissions',NULL,NULL,'2019-12-13 12:49:34'),(6,2,10,'菜单','fa-bars','auth/menu',NULL,NULL,'2019-12-13 12:49:34'),(7,2,11,'操作日志','fa-history','auth/logs',NULL,NULL,'2019-12-13 12:49:34'),(8,0,5,'用户管理','fa-users','/users',NULL,'2019-06-10 00:18:30','2019-12-13 12:49:34'),(9,0,2,'大赛管理','fa-cubes','/campaigns',NULL,'2019-06-10 00:54:54','2019-12-13 12:40:15'),(10,0,3,'新闻分类','fa-book','/news_categories',NULL,'2019-12-13 12:47:37','2019-12-13 12:54:10'),(11,0,4,'新闻列表','fa-newspaper-o','/news_articles',NULL,'2019-12-13 12:49:03','2019-12-13 12:54:24'),(12,1,0,'轮播图','fa-image','/carousels',NULL,'2020-06-02 16:38:51','2020-06-02 16:38:51');
 /*!40000 ALTER TABLE `admin_menu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -31,7 +31,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `admin_permissions` WRITE;
 /*!40000 ALTER TABLE `admin_permissions` DISABLE KEYS */;
-INSERT INTO `admin_permissions` VALUES (1,'All permission','*','','*',NULL,NULL),(2,'Dashboard','dashboard','GET','/',NULL,NULL),(3,'Login','auth.login','','/auth/login\r\n/auth/logout',NULL,NULL),(4,'User setting','auth.setting','GET,PUT','/auth/setting',NULL,NULL),(5,'Auth management','auth.management','','/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs',NULL,NULL);
+INSERT INTO `admin_permissions` VALUES (1,'All permission','*','','*',NULL,NULL),(2,'Dashboard','dashboard','GET','/',NULL,NULL),(3,'Login','auth.login','','/auth/login\r\n/auth/logout',NULL,NULL),(4,'User setting','auth.setting','GET,PUT','/auth/setting',NULL,NULL),(5,'Auth management','auth.management','','/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs',NULL,NULL),(6,'用户管理','users','','/users*','2019-12-13 12:35:05','2019-12-13 12:36:44'),(7,'大赛管理','campaigns','','/campaigns*','2019-12-13 12:37:09','2019-12-13 12:39:50');
 /*!40000 ALTER TABLE `admin_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -103,4 +103,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-06-12  6:04:39
+-- Dump completed on 2020-06-02  8:46:38

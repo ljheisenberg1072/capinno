@@ -1,0 +1,22 @@
+{
+    "E-Mail Address": "邮箱",
+    "E-Mail Address Register": "邮箱注册",
+    "Password Login": "密码登录",
+    "Please Type Correct": "请输入正确的",
+    "Not Account Yet?": "还没账号？",
+    "Existing Account?": "已有账号？",
+    "Immediately Register": "立即注册",
+    "Captcha": "验证码",
+    "Click Image To Accept New Captcha": "点击图片重新获取验证码",
+    "Set Password": "设置密码",
+    "Immediately Login": "马上登录",
+    "Please Type At Least Eight Number Password": "请输入至少8位数密码",
+    "Register Present You Have Read And Agree": "注册即代表您已阅读并同意",
+    "CAPINNO Agreement": "《CAPINNO协议》",
+    "Verify Email Address": "验证邮箱",
+    "Verify Your Email Address": "验证邮箱",
+    "A fresh verification link has been sent to your email address.": "新的验证链接已发送到您的邮箱。",
+    "Before proceeding, please check your email for a verification link.": "在继续之前请先验证您的邮箱。",
+    "If you did not receive the email please check your spam email or login web email check if it is be quarantined": "如果您没有收到邮件，请先检查一下垃圾邮件或者登录网页邮箱查看邮件是否被隔离",
+    "click here to request another": "点击重新发送邮件"
+}

@@ -1,0 +1,86 @@
+{
+  "id": "1859649",
+  "name": "capinno",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "6976252",
+      "name": "时间",
+      "font_class": "shijian",
+      "unicode": "e72c",
+      "unicode_decimal": 59180
+    },
+    {
+      "icon_id": "8807420",
+      "name": "浏览量",
+      "font_class": "liulanliang",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
+    },
+    {
+      "icon_id": "948123",
+      "name": "淘汰赛-01",
+      "font_class": "taotaisai01",
+      "unicode": "e60d",
+      "unicode_decimal": 58893
+    },
+    {
+      "icon_id": "1672670",
+      "name": "比赛",
+      "font_class": "bisai",
+      "unicode": "e692",
+      "unicode_decimal": 59026
+    },
+    {
+      "icon_id": "3931885",
+      "name": "面试",
+      "font_class": "mianshi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    },
+    {
+      "icon_id": "7713064",
+      "name": "更多",
+      "font_class": "gengduo",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    },
+    {
+      "icon_id": "11569054",
+      "name": "多人",
+      "font_class": "duoren",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "13275389",
+      "name": "比赛",
+      "font_class": "bisai1",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "4725779",
+      "name": "eye",
+      "font_class": "eye",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "11457229",
+      "name": "user",
+      "font_class": "user1",
+      "unicode": "e610",
+      "unicode_decimal": 58896
+    },
+    {
+      "icon_id": "12951411",
+      "name": "eye",
+      "font_class": "eye1",
+      "unicode": "e601",
+      "unicode_decimal": 58881
+    }
+  ]
+}

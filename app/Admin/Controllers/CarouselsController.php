@@ -3,72 +3,19 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Carousel;
-use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\HasResourceActions;
+use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
-use Illuminate\Support\Str;
 
-class CarouselsController extends Controller
+class CarouselsController extends AdminController
 {
-    use HasResourceActions;
-
     /**
-     * Index interface.
+     * Title for current resource.
      *
-     * @param Content $content
-     * @return Content
+     * @var string
      */
-    public function index(Content $content)
-    {
-        return $content
-            ->header('轮播图列表')
-            ->body($this->grid());
-    }
-
-    /**
-     * Show interface.
-     *
-     * @param mixed $id
-     * @param Content $content
-     * @return Content
-     */
-    public function show($id, Content $content)
-    {
-        return $content
-            ->header('Detail')
-            ->description('description')
-            ->body($this->detail($id));
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param mixed $id
-     * @param Content $content
-     * @return Content
-     */
-    public function edit($id, Content $content)
-    {
-        return $content
-            ->header('编辑轮播图')
-            ->body($this->form()->edit($id));
-    }
-
-    /**
-     * Create interface.
-     *
-     * @param Content $content
-     * @return Content
-     */
-    public function create(Content $content)
-    {
-        return $content
-            ->header('新增轮播图')
-            ->body($this->form());
-    }
+    protected $title = '轮播图列表';
 
     /**
      * Make a grid builder.
@@ -77,28 +24,18 @@ class CarouselsController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Carousel);
+        $grid = new Grid(new Carousel());
 
-        //  默认按照创建时间倒序排序
-        $grid->model()->orderBy('created_at', 'desc');
-        $grid->id('ID')->sortable();
-        $grid->title('标题');
-        $grid->is_show('是否展示')->display(function($value) {
-            return $value ? '是' : '否';
-        });
-        $grid->order('排序');
-        $grid->view_count('浏览量');
-        $grid->created_at('创建时间');
+        $grid->column('id', 'ID')->sortable();
+        $grid->column('image', '缩略图')->image(env('APP_URL').'/storage', 150, 60);
+        $grid->column('is_show', '是否展示')->bool();
+        $grid->column('order', '排序')->editable();
+        $grid->column('view_count', '浏览量')->editable();
+        $grid->column('created_at', '创建时间');
+        $grid->column('updated_at', '更新时间');
 
-        $grid->actions(function ($actions) {
-            $actions->disableView();
-        });
-        $grid->tools(function ($tools) {
-            //  禁用批量删除按钮
-            $tools->batch(function ($batch) {
-                $batch->disableDelete();
-            });
-        });
+        //  去掉批量操作
+        $grid->disableBatchActions();
 
         return $grid;
     }
@@ -113,15 +50,15 @@ class CarouselsController extends Controller
     {
         $show = new Show(Carousel::findOrFail($id));
 
-        $show->id('Id');
-        $show->image('Image');
-        $show->title('Title');
-        $show->link('Link');
-        $show->is_show('Is show');
-        $show->order('Order');
-        $show->view_count('View count');
-        $show->created_at('Created at');
-        $show->updated_at('Updated at');
+        $show->field('id', 'ID');
+        $show->field('image', '轮播图');
+        $show->field('title', '标题');
+        $show->field('link', '链接');
+        $show->field('is_show', '是否展示');
+        $show->field('order', '排序');
+        $show->field('view_count', '浏览量');
+        $show->field('created_at', '创建时间');
+        $show->field('updated_at', '更新时间');
 
         return $show;
     }
@@ -133,17 +70,14 @@ class CarouselsController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Carousel);
+        $form = new Form(new Carousel());
 
-        $form->display('id', 'ID');
-        $form->image('image', '轮播图片')->rules('required|image')->help('推荐图片尺寸大小：1100px * 450px')->name(function ($file) {
-            return time().Str::random().".".$file->guessExtension();
-        })->move("uploads/images/carousels/".date("Ym/d", time()));
-        $form->text('title', '标题')->default('');
-        $form->text('link', '链接')->default('');
-        $form->radio('is_show', '是否展示')->options(['1'=>'是', '0'=>'否'])->default('1');
-        $form->text('order', '排序')->rules('required|numeric|min:0')->default('0');
-        $form->text('view_count', '浏览量')->rules('required|numeric|min:0')->default('0');
+        $form->image('image', '轮播图')->rules('required|image|dimensions:min_width=1800')->resize(1920, 600)->uniqueName()->move("uploads/images/carousels/".date("Ym/d", time()))->help('推荐尺寸：1920px * 600px');
+        $form->text('title', '标题');
+        $form->text('link', '链接');
+        $form->radio('is_show', '是否展示')->options([1=>'是', 0=>'否'])->default(1);
+        $form->text('order', '排序')->rules('numeric|min:0')->default(0);
+        $form->text('view_count', '浏览量')->rules('numeric|min:0')->default(0);
 
         return $form;
     }

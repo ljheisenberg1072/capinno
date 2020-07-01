@@ -3,70 +3,19 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Campaign;
-use App\Http\Controllers\Controller;
-use Encore\Admin\Controllers\HasResourceActions;
+use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
-use Encore\Admin\Layout\Content;
 use Encore\Admin\Show;
 
-class CampaignsController extends Controller
+class CampaignsController extends AdminController
 {
-    use HasResourceActions;
-
     /**
-     * Index interface.
+     * Title for current resource.
      *
-     * @param Content $content
-     * @return Content
+     * @var string
      */
-    public function index(Content $content)
-    {
-        return $content
-            ->header('大赛列表')
-            ->body($this->grid());
-    }
-
-    /**
-     * Show interface.
-     *
-     * @param mixed $id
-     * @param Content $content
-     * @return Content
-     */
-    public function show($id, Content $content)
-    {
-        return $content
-            ->header('大赛详情')
-            ->body($this->detail($id));
-    }
-
-    /**
-     * Edit interface.
-     *
-     * @param mixed $id
-     * @param Content $content
-     * @return Content
-     */
-    public function edit($id, Content $content)
-    {
-        return $content
-            ->header('编辑大赛')
-            ->body($this->form()->edit($id));
-    }
-
-    /**
-     * Create interface.
-     *
-     * @param Content $content
-     * @return Content
-     */
-    public function create(Content $content)
-    {
-        return $content
-            ->header('创建大赛')
-            ->body($this->form());
-    }
+    protected $title = '大赛列表';
 
     /**
      * Make a grid builder.
@@ -75,24 +24,20 @@ class CampaignsController extends Controller
      */
     protected function grid()
     {
-        $grid = new Grid(new Campaign);
+        $grid = new Grid(new Campaign());
 
-        $grid->id('ID')->sortable();
-        $grid->title('大赛名称');
-        $grid->on_hold('正在举行')->display(function ($value) {
-            return $value ? '是' : '否';
-        });
-        $grid->created_at('创建时间');
+        $grid->column('id', 'ID')->sortable();
+        $grid->column('title', '大赛名称');
+        $grid->column('on_hold', '正在举行')->bool();
+        $grid->column('created_at', '创建时间');
 
+        //  关闭行删除
         $grid->actions(function ($actions) {
-            $actions->disableView();
             $actions->disableDelete();
         });
-        $grid->tools(function ($tools) {
-            $tools->batch(function ($batch) {
-                $batch->disableDelete();
-            });
-        });
+
+        //  去掉批量操作
+        $grid->disableBatchActions();
 
         return $grid;
     }
@@ -107,11 +52,11 @@ class CampaignsController extends Controller
     {
         $show = new Show(Campaign::findOrFail($id));
 
-        $show->id('Id');
-        $show->title('Title');
-        $show->on_hold('On hold');
-        $show->created_at('Created at');
-        $show->updated_at('Updated at');
+        $show->field('id', __('Id'));
+        $show->field('title', __('Title'));
+        $show->field('on_hold', __('On hold'));
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -123,10 +68,10 @@ class CampaignsController extends Controller
      */
     protected function form()
     {
-        $form = new Form(new Campaign);
+        $form = new Form(new Campaign());
 
-        $form->text('title', '大赛名称')->rules('required');
-        $form->radio('on_hold', '正在举行')->options(['1' => '是', '0' => '否'])->default('0');
+        $form->text('title', '大赛名称')->rules('required|max:255');
+        $form->radio('on_hold', '正在举行')->options([1=>'是', 0=>'否'])->default(1);
 
         return $form;
     }
