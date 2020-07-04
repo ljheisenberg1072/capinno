@@ -33,67 +33,69 @@
         </div>
     </div>
 </div>
-<div class="container">
-    <div class="row mt-100 mb-100">
-        <div class="col-lg-12">
-            <div class="schedule-header text-center">
-                <h2>参赛流程</h2>
-            </div>
-            <div class="schedule-body row text-center justify-content-center mt-5">
-                <div class="col-lg-2 col-6 schedule-item">
-                    <div class="top">
-                        <div class="img">
-                            <span><i class="iconfont icon-duoren" style="font-size: 40px;"></i></span>
-                        </div>
-                    </div>
-                    <div class="schedule-name">初赛</div>
-                    <p class="schedule-time">9月16日~10月13日</p>
-                    <p class="schedule-event">设计创意提案提交 评审</p>
+<section class="campaign-schedule">
+    <div class="container">
+        <div class="row mt-100 mb-100">
+            <div class="col-lg-12">
+                <div class="schedule-header text-center">
+                    <h2>参赛流程</h2>
                 </div>
-                <div class="col-lg-2 col-6 schedule-item">
-                    <div class="top">
-                        <div class="img">
-                            <span><i class="iconfont icon-taotaisai01" style="font-size: 40px;"></i></span>
+                <div class="schedule-body row text-center justify-content-center mt-5">
+                    <div class="col-lg-2 col-6 schedule-item">
+                        <div class="top">
+                            <div class="img">
+                                <span><i class="iconfont icon-duoren" style="font-size: 40px;"></i></span>
+                            </div>
                         </div>
+                        <div class="schedule-name">初赛</div>
+                        <p class="schedule-time">9月16日~10月13日</p>
+                        <p class="schedule-event">设计创意提案提交 评审</p>
                     </div>
-                    <div class="schedule-name">复赛</div>
-                    <p class="schedule-time">10月28日~11月29日</p>
-                    <p class="schedule-event">产品商业计划书提交 评审</p>
-                </div>
-                <div class="col-lg-2 col-6 schedule-item">
-                    <div class="top">
-                        <div class="img">
-                            <span><i class="iconfont icon-bisai" style="font-size: 40px;"></i></span>
+                    <div class="col-lg-2 col-6 schedule-item">
+                        <div class="top">
+                            <div class="img">
+                                <span><i class="iconfont icon-taotaisai01" style="font-size: 40px;"></i></span>
+                            </div>
                         </div>
+                        <div class="schedule-name">复赛</div>
+                        <p class="schedule-time">10月28日~11月29日</p>
+                        <p class="schedule-event">产品商业计划书提交 评审</p>
                     </div>
-                    <div class="schedule-name">决赛答辩</div>
-                    <p class="schedule-time">2020年1月</p>
-                    <p class="schedule-event">样品提交 + 决赛现场答辩</p>
-                </div>
-                <div class="col-lg-2 col-6 schedule-item">
-                    <div class="top">
-                        <div class="img">
-                            <span><i class="iconfont icon-mianshi" style="font-size: 40px;"></i></span>
+                    <div class="col-lg-2 col-6 schedule-item">
+                        <div class="top">
+                            <div class="img">
+                                <span><i class="iconfont icon-bisai" style="font-size: 40px;"></i></span>
+                            </div>
                         </div>
+                        <div class="schedule-name">决赛答辩</div>
+                        <p class="schedule-time">2020年1月</p>
+                        <p class="schedule-event">样品提交 + 决赛现场答辩</p>
                     </div>
-                    <div class="schedule-name">创业面试</div>
-                    <p class="schedule-time">2020年1月</p>
-                    <p class="schedule-event">创业营选拔</p>
-                </div>
-                <div class="col-lg-2 col-6 schedule-item">
-                    <div class="top">
-                        <div class="img">
-                            <span><i class="iconfont icon-bisai1" style="font-size: 40px;"></i></span>
+                    <div class="col-lg-2 col-6 schedule-item">
+                        <div class="top">
+                            <div class="img">
+                                <span><i class="iconfont icon-mianshi" style="font-size: 40px;"></i></span>
+                            </div>
                         </div>
+                        <div class="schedule-name">创业面试</div>
+                        <p class="schedule-time">2020年1月</p>
+                        <p class="schedule-event">创业营选拔</p>
                     </div>
-                    <div class="schedule-name">商业路演(总决赛)</div>
-                    <p class="schedule-time">2020年4月</p>
-                    <p class="schedule-event">FBIC 现场路演</p>
+                    <div class="col-lg-2 col-6 schedule-item">
+                        <div class="top">
+                            <div class="img">
+                                <span><i class="iconfont icon-bisai1" style="font-size: 40px;"></i></span>
+                            </div>
+                        </div>
+                        <div class="schedule-name">商业路演(总决赛)</div>
+                        <p class="schedule-time">2020年4月</p>
+                        <p class="schedule-event">FBIC 现场路演</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 <section class="campaign-category" style="background-image: url('/images/category/background.png')">
     <div class="container">
         <div class="row">

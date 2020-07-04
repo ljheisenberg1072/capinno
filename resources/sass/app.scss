@@ -12,6 +12,8 @@
 body {
     font-family: Hiragino Sans GB, "Hiragino Sans GB", Helvetica, "Microsoft YaHei", Arial, sans-serif;
     font-size: 14px;
+    color: #636b6f;
+    background-color: #fff;
 }
 
 /* header */
@@ -85,7 +87,6 @@ html {
 
 /* root page */
 .root-page {
-    background-color: #fff;
     .container {
         h1 {
             color: #999999;
@@ -218,6 +219,70 @@ html {
             font-size: 15px;
             font-weight: bold;
             color: #999999;
+        }
+    }
+}
+
+/* guidances-index-page */
+
+.guidances-index-page {
+    .campaign-category {
+        img {
+            width: 400px;
+            max-width: 100%;
+        }
+        p {
+            font-size: 16px;
+            color: #fff;
+        }
+    }
+    .campaign-file {
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #e50012;
+            i {
+                font-size: 36px;
+                margin-left: 20px;
+            }
+        }
+    }
+    .campaign-award {
+        position: relative;
+        padding: 100px 0;
+        background-position: 50%;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: 2;
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 100%;
+            background: #532474;
+            opacity: .75;
+            z-index: -1;
+        }
+        color: #fff;
+        .table {
+            color: #fff;
+            thead {
+                background-color: #0BB6F0;
+                font-size: 18px;
+            }
+            tbody {
+                background-color: #9686A5;
+            }
+        }
+    }
+    .campaign-notice {
+        p {
+            font-size: 15px;
+            margin-bottom: 0.5rem;
+            line-height: 1.75rem;
+            letter-spacing: 0.5px;
         }
     }
 }

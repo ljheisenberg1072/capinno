@@ -8,9 +8,9 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active"><a class="nav-link" href="{{ route('root') }}">首页</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('root') }}">首页</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">新闻动态</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">参赛指引</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('guidances.index') }}">参赛指引</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">作品提交说明</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">大赛评委</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">关于我们</a></li>

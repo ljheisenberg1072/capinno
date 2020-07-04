@@ -15,6 +15,7 @@ Route::get('/', 'PagesController@root')->name('root');
 
 Route::get('carousels', 'UserSignsController@index')->name('carousels.index');
 Route::get('carousels/{carousel}', 'UserSignsController@show')->name('carousels.show');
+Route::get('guidances', 'GuidancesController@index')->name('guidances.index');
 
 Auth::routes(['verify' => true]);
 

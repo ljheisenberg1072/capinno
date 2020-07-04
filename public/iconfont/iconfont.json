@@ -6,6 +6,13 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "6663240",
+      "name": "ic cloud download 24",
+      "font_class": "icclouddownload",
+      "unicode": "ec54",
+      "unicode_decimal": 60500
+    },
+    {
       "icon_id": "6976252",
       "name": "时间",
       "font_class": "shijian",
