@@ -287,6 +287,50 @@ html {
     }
 }
 
+/* submission-index-page */
+
+.submission-index-page {
+    .submission-format {
+        .title {
+            padding: 15px 0;
+            background-color:#4B216D;
+            color: #fff;
+            text-align: center;
+        }
+        .content {
+            padding: 20px 20px;
+            border: 1px solid #4B216D;
+            min-height: 260px;
+            p {
+              margin-bottom: 8px;
+            }
+        }
+    }
+    .submission-schedule {
+        position: relative;
+        padding: 100px 0;
+        color: #fff;
+        .table {
+            color: #fff;
+            thead {
+                background-color: #0BB6F0;
+                font-size: 18px;
+            }
+            tbody {
+                background-color: #9686A5;
+            }
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;
+            i {
+                font-size: 36px;
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
 /* login-page */
 
 .login-page {
