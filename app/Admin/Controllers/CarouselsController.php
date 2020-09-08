@@ -51,7 +51,7 @@ class CarouselsController extends AdminController
         $show = new Show(Carousel::findOrFail($id));
 
         $show->field('id', 'ID');
-        $show->field('image', '轮播图');
+        $show->field('image', '轮播图')->image();
         $show->field('title', '标题');
         $show->field('link', '链接');
         $show->field('is_show', '是否展示');
@@ -72,7 +72,7 @@ class CarouselsController extends AdminController
     {
         $form = new Form(new Carousel());
 
-        $form->image('image', '轮播图')->rules('required|image|dimensions:min_width=1800')->resize(1920, 600)->uniqueName()->move("uploads/images/carousels/".date("Ym/d", time()))->help('推荐尺寸：1920px * 600px');
+        $form->image('image', '轮播图')->rules('required|image|dimensions:min_width=1800')->resize(1920, 600)->uniqueName()->move("uploads/images/carousels/".date("Y/m/d", time()))->help('推荐尺寸：1920px * 600px');
         $form->text('title', '标题');
         $form->text('link', '链接');
         $form->radio('is_show', '是否展示')->options([1=>'是', 0=>'否'])->default(1);

@@ -15,7 +15,7 @@ class NewsCategoriesController extends AdminController
      *
      * @var string
      */
-    protected $title = '新闻分类列表';
+    protected $title = '新闻分类';
 
     /**
      * Make a grid builder.
@@ -26,32 +26,24 @@ class NewsCategoriesController extends AdminController
     {
         $grid = new Grid(new NewsCategory());
 
-        $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
-        $grid->column('order', __('Order'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->model()->orderByDesc('id');
+        $grid->column('id', 'ID')->sortable();
+        $grid->column('name', '分类');
+        $grid->column('order', '排序')->editable()->sortable();
+        $grid->column('created_at', '创建时间');
+        $grid->column('updated_at', '更新时间');
+
+        $grid->actions(function ($actions) {
+            //  去掉查看
+            $actions->disableView();
+            //  去掉删除
+            $actions->disableDelete();
+        });
+
+        //  去掉批量操作
+        $grid->disableBatchActions();
 
         return $grid;
-    }
-
-    /**
-     * Make a show builder.
-     *
-     * @param mixed $id
-     * @return Show
-     */
-    protected function detail($id)
-    {
-        $show = new Show(NewsCategory::findOrFail($id));
-
-        $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
-        $show->field('order', __('Order'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-
-        return $show;
     }
 
     /**
@@ -63,8 +55,19 @@ class NewsCategoriesController extends AdminController
     {
         $form = new Form(new NewsCategory());
 
-        $form->text('name', __('Name'));
-        $form->number('order', __('Order'));
+        $form->text('name', '分类名称')->rules('required|max:255');
+        $form->text('order', '排序')->default(1000);
+
+        $form->tools(function (Form\Tools $tools) {
+            //  去掉查看按钮
+            $tools->disableView();
+            //  去掉删除按钮
+            $tools->disableDelete();
+        });
+        $form->footer(function ($footer) {
+            //  去掉查看 checkbox
+            $footer->disableViewCheck();
+        });
 
         return $form;
     }

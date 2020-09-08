@@ -1,7 +1,7 @@
 <footer class="footer">
     <div class="container">
         <div class="row mt-5">
-            <div class="row col-lg-8">
+            <div class="row col-lg-10">
                 <div class="col-lg-4">
                     <div class="col-lg-12">
                         <h5>品牌 & 理念</h5>
@@ -35,7 +35,7 @@
                         <h5>关于CAPINNO</h5>
                     </div>
                     <div class="col-lg-12 mt-2">
-                        <a href="#">FOODAILY每日食品</a>
+                        <a href="#">Foodaily每日食品</a>
                     </div>
                     <div class="col-lg-12 mt-2">
                         <a href="#">网站使用协议</a>
@@ -53,18 +53,10 @@
                     <img src="/images/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
                 </div>
             </div>
-            <div class="col-lg-2 text-center">
-                <div>
-                    <h5>微博</h5>
-                </div>
-                <div>
-                    <img src="/images/capinno_gongzhonghao.jpg" alt="" width="90px" height="90px">
-                </div>
-            </div>
         </div>
         <div class="row mt-4">
             <div class="col-lg-12 text-center">
-                Copyright © 2018-2019 CAPINNO All Rights Reserved
+                Copyright © 2020-2021 CAPINNO All Rights Reserved
             </div>
         </div>
         <div class="row mt-2">

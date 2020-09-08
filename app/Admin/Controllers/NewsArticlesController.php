@@ -3,10 +3,12 @@
 namespace App\Admin\Controllers;
 
 use App\Models\NewsArticle;
+use App\Models\NewsCategory;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
+use Illuminate\Support\Str;
 
 class NewsArticlesController extends AdminController
 {
@@ -15,7 +17,7 @@ class NewsArticlesController extends AdminController
      *
      * @var string
      */
-    protected $title = '新闻动态列表';
+    protected $title = '新闻列表';
 
     /**
      * Make a grid builder.
@@ -26,42 +28,27 @@ class NewsArticlesController extends AdminController
     {
         $grid = new Grid(new NewsArticle());
 
-        $grid->column('id', __('Id'));
-        $grid->column('category_id', __('Category id'));
-        $grid->column('title', __('Title'));
-        $grid->column('introduce', __('Introduce'));
-        $grid->column('description', __('Description'));
-        $grid->column('image', __('Image'));
-        $grid->column('order', __('Order'));
-        $grid->column('view_count', __('View count'));
-        $grid->column('created_at', __('Created at'));
-        $grid->column('updated_at', __('Updated at'));
+        $grid->model()->orderByDesc('id');
+
+        $grid->column('id', 'ID')->sortable();
+        $grid->column('category_id', '分类')->display(function ($id) {
+            return NewsCategory::query()->where('id', $id)->value('name');
+        });
+        $grid->column('title', '标题');
+        $grid->column('on_show', '发布状态')->bool();
+        $grid->column('display_order', '排序')->editable()->sortable();
+        $grid->column('review_count', '阅读量')->label();
+        $grid->column('created_at', '创建时间');
+
+        $grid->actions(function ($actions) {
+            //  去掉查看
+            $actions->disableView();
+        });
+
+        //  去掉批量操作
+        $grid->disableBatchActions();
 
         return $grid;
-    }
-
-    /**
-     * Make a show builder.
-     *
-     * @param mixed $id
-     * @return Show
-     */
-    protected function detail($id)
-    {
-        $show = new Show(NewsArticle::findOrFail($id));
-
-        $show->field('id', __('Id'));
-        $show->field('category_id', __('Category id'));
-        $show->field('title', __('Title'));
-        $show->field('introduce', __('Introduce'));
-        $show->field('description', __('Description'));
-        $show->field('image', __('Image'));
-        $show->field('order', __('Order'));
-        $show->field('view_count', __('View count'));
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
-
-        return $show;
     }
 
     /**
@@ -73,13 +60,30 @@ class NewsArticlesController extends AdminController
     {
         $form = new Form(new NewsArticle());
 
-        $form->number('category_id', __('Category id'));
-        $form->text('title', __('Title'));
-        $form->text('introduce', __('Introduce'));
-        $form->textarea('description', __('Description'));
-        $form->image('image', __('Image'));
-        $form->number('order', __('Order'));
-        $form->number('view_count', __('View count'));
+        $form->text('title', '标题')->rules('required|max:255');
+        $form->select('category_id', '分类')->options(NewsCategory::all()->pluck('name', 'id'))->rules('required');
+        $form->textarea('excerpt', '简介')->rules('nullable');
+        $form->image('cover', '封面')->rules('required|image|dimensions:min_width=300')->resize(600, 400)->uniqueName()->move("uploads/cover/" . date("Y/m/d", time()))->help('推荐尺寸：600px * 400px，宽度不能小于300px');
+        $form->UEditor('content', '内容')->rules('required');
+        $form->radio('on_show', '发布状态')->options([1 => '已发布', 0 => '未发布'])->default(1);
+        $form->text('display_order', '排序')->default(1000);
+        $form->text('review_count', '阅读量')->default(0);
+
+        $form->tools(function (Form\Tools $tools) {
+            //  去掉查看按钮
+            $tools->disableView();
+        });
+        $form->footer(function ($footer) {
+            //  去掉查看 checkbox
+            $footer->disableViewCheck();
+        });
+
+        $form->saving(function (Form $form) {
+            if (!$form->excerpt) {
+                $excerpt = trim(preg_replace('/\r\n|\r|\n+/', ' ', strip_tags($form->content)));
+                $form->excerpt = Str::limit($excerpt, 200);
+            }
+        });
 
         return $form;
     }

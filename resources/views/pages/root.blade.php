@@ -262,20 +262,20 @@
                     <h2>赛事新闻</h2>
                 </div>
                 <div class="mb-5 show-more">
-                    <a href="#" class="float-right">更多动态<i class="iconfont icon-gengduo ml-1"></i></a>
+                    <a href="{{ route('news_articles.index') }}" class="float-right">更多动态<i class="iconfont icon-gengduo ml-1"></i></a>
                 </div>
                 <div class="row">
-                    @for($i=0;$i<4;$i++)
+                    @foreach($news_articles as $news_article)
                         <div class="col-lg-3 col-sm-6 col-6 mb-4">
                             <div class="news-body">
-                                <a href="#"><img src="/images/news.png" alt=""></a>
+                                <a href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}"><img src="{{ $news_article->cover_url }}" alt=""></a>
                                 <div class="news-content">
-                                    <a href="#" title="梦想邀请函 | 产品创始人集结号！CAPINNO 商业挑战赛"><p class="news-text">梦想邀请函 | 产品创始人集结号！CAPINNO 商业挑战赛</p></a>
-                                    <p class="text-right mr-3"><i class="iconfont icon-shijian mr-2"></i>1小时前</p>
+                                    <a href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}" title="{{ $news_article->title }}"><p class="news-text">{{ $news_article->title }}</p></a>
+                                    <p class="text-right mr-3"><i class="iconfont icon-shijian mr-2"></i>{{ $news_article->created_at->diffForHumans() }}</p>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
             </div>
         </div>

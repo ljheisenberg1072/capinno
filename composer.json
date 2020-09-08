@@ -9,13 +9,15 @@
     "license": "MIT",
     "require": {
         "php": "^7.2",
+        "codingyu/ueditor": "^3.0",
         "encore/laravel-admin": "1.7.*",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
         "mews/captcha": "^3.0",
-        "overtrue/laravel-lang": "^3.0"
+        "overtrue/laravel-lang": "^3.0",
+        "summerblue/laravel-active": "6.*"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "~3.2",

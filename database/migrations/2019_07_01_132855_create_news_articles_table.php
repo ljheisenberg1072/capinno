@@ -17,11 +17,12 @@ class CreateNewsArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedInteger('category_id');
             $table->string('title');
-            $table->string('introduce');
-            $table->text('description');
-            $table->string('image');
-            $table->unsignedInteger('order')->default('0');
-            $table->unsignedInteger('view_count')->default('0');
+            $table->text('excerpt');
+            $table->string('cover');
+            $table->mediumText('content');
+            $table->boolean('on_show')->default(true);
+            $table->unsignedInteger('display_order')->default('1000');
+            $table->unsignedInteger('review_count')->default('0');
             $table->timestamps();
         });
     }

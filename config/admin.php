@@ -396,6 +396,20 @@ return [
     |
     */
     'extensions' => [
-
+        'ueditor' => [
+            //  如果要关掉这个扩展，设置为 false
+            'enable' => true,
+            //  编辑器的前端配置参考：http://fex.baidu.com/ueditor/#start-config
+            'config' => [
+                'initialFrameHeight' => 400, // 初始化高度
+                'toolbars' => [
+                    ['source','undo', 'redo', 'bold', 'italic', 'underline', 'fontborder', 'strikethrough', 'removeformat', 'formatmatch',
+                        'blockquote', 'pasteplain', 'forecolor', 'backcolor', 'insertorderedlist', 'insertunorderedlist', 'selectall',
+                        'cleardoc', 'rowspacingtop', 'rowspacingbottom', 'lineheight', 'fontfamily', 'fontsize', 'indent',
+                        'justifyleft', 'justifyright', 'justifycenter', 'justifyjustify', 'simpleupload', 'insertimage', 'insertvideo',
+                        'link', 'unlink', 'attachment']
+                ]
+            ],
+        ]
     ],
 ];

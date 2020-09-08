@@ -15,8 +15,11 @@ Route::get('/', 'PagesController@root')->name('root');
 
 Route::get('carousels', 'UserSignsController@index')->name('carousels.index');
 Route::get('carousels/{carousel}', 'UserSignsController@show')->name('carousels.show');
+Route::get('news_articles', 'NewsArticlesController@index')->name('news_articles.index');
+Route::get('news_articles/{news_article}', 'NewsArticlesController@show')->name('news_articles.show');
 Route::get('guidances', 'GuidancesController@index')->name('guidances.index');
 Route::get('submission', 'SubmissionController@index')->name('submission.index');
+Route::get('about', 'AboutController@index')->name('about.index');
 
 Auth::routes(['verify' => true]);
 
