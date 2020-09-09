@@ -35,5 +35,11 @@ Route::group([
     $router->get('news_articles/{id}/edit', 'NewsArticlesController@edit');
     $router->put('news_articles/{id}', 'NewsArticlesController@update');
     $router->delete('news_articles/{id}', 'NewsArticlesController@destroy');
+    $router->get('judges', 'JudgesController@index');
+    $router->get('judges/create', 'JudgesController@create');
+    $router->post('judges', 'JudgesController@store');
+    $router->get('judges/{id}/edit', 'JudgesController@edit');
+    $router->put('judges/{id}', 'JudgesController@update');
+    $router->delete('judges/{id}', 'JudgesController@destroy');
 
 });

@@ -11,8 +11,8 @@ class NewsArticlesController extends Controller
     public function index( NewsArticle $news_article, Request $request)
     {
         $news_articles = $news_article->withCategory($request->category)
-            ->where('on_show', 1)
-            ->orderByDesc('display_order')
+            ->where('on_show', true)
+            ->orderBy('display_order')
             ->orderByDesc('created_at')
             ->paginate(10);
 

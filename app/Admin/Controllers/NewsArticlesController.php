@@ -48,6 +48,14 @@ class NewsArticlesController extends AdminController
         //  去掉批量操作
         $grid->disableBatchActions();
 
+        $grid->filter(function($filter) {
+            //  去掉默认的id过滤器
+            $filter->disableIdFilter();
+            //  添加字段过滤器
+            $filter->equal('category_id', '分类')->select(NewsCategory::all()->pluck('name', 'id'));
+            $filter->like('title', '标题');
+        });
+
         return $grid;
     }
 

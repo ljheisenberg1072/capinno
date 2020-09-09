@@ -289,34 +289,23 @@
                     <h2>创新委员会</h2>
                 </div>
                 <div class="row text-center">
-                    @for($i=0;$i<12;$i++)
-                        <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
-                            <div class="judge-body">
-                                @if($i%2 == 1)
-                                    <div class="avatar">
-                                        <a href="#"><img src="/images/judge-2.png" alt=""></a>
-                                    </div>
-                                    <div class="judge-content mt-3">
-                                        <h4>Dr. Weizhi Chen</h4>
-                                        <p class="judge-company">FOOD Innovation Design</p>
-                                        <p class="judge-title">创始人，前白波食品(达能北美)首席技术官及高级副总裁</p>
-                                    </div>
-                                @else
-                                    <div class="avatar">
-                                        <a href="#"><img src="/images/judge-1.png" alt=""></a>
-                                    </div>
-                                    <div class="judge-content mt-3">
-                                        <h4>孙东晓</h4>
-                                        <p class="judge-company">新西兰食品科技院</p>
-                                        <p class="judge-title">院士，国际农业工程和生物系统委员会功能健康食品平台主席</p>
-                                    </div>
-                                @endif
+                    @foreach ($judges as $judge)
+                    <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
+                        <div class="judge-body">
+                            <div class="avatar">
+                                <a href="{{ route('judges.show', ['judge' => $judge->id]) }}" target="_blank"><img src="{{ $judge->avatar_url }}" alt="{{ $judge->name }}"></a>
+                            </div>
+                            <div class="judge-content mt-3">
+                                <h4>{{ $judge->name }}</h4>
+                                <p class="judge-company">{{ $judge->company }}</p>
+                                <p class="judge-title">{{ $judge->title }}</p>
                             </div>
                         </div>
-                    @endfor
+                    </div>
+                    @endforeach
                 </div>
                 <div class="row justify-content-center mt-5">
-                    <a href="#" class="btn btn-danger btn-lg">更多评委/导师</a>
+                    <a href="{{ route('judges.index') }}" target="_blank" class="btn btn-danger btn-lg">更多评委/导师</a>
                 </div>
             </div>
         </div>

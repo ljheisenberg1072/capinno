@@ -7,13 +7,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="{{ route('root') }}">首页</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('news_articles.index') }}">新闻动态</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('guidances.index') }}">参赛指引</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('submission.index') }}">作品提交说明</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">大赛评委</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('about.index') }}">关于我们</a></li>
+            <ul class="navbar-nav mr-auto navbar-hover">
+                <li class="nav-item {{ active_class(if_route('root')) }}"><a class="nav-link" href="{{ route('root') }}">首页</a></li>
+                <li class="nav-item {{ active_class(if_route(['news_articles.index', 'news_articles.show'])) }}"><a class="nav-link" href="{{ route('news_articles.index') }}">新闻动态</a></li>
+                <li class="nav-item {{ active_class(if_route('guidances.index')) }}"><a class="nav-link" href="{{ route('guidances.index') }}">参赛指引</a></li>
+                <li class="nav-item {{ active_class(if_route('submission.index')) }}"><a class="nav-link" href="{{ route('submission.index') }}">作品提交说明</a></li>
+                <li class="nav-item {{ active_class(if_route(['judges.index', 'judges.show'])) }}"><a class="nav-link" href="{{ route('judges.index') }}">大赛评委</a></li>
+                <li class="nav-item {{ active_class(if_route('about.index')) }}"><a class="nav-link" href="{{ route('about.index') }}">关于我们</a></li>
             </ul>
             <ul class="navbar-nav navbar-right">
                 <!-- 登录注册开始 -->
