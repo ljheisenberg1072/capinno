@@ -21,9 +21,10 @@ class CreateJudgesTable extends Migration
             $table->string('title')->comment('头衔');
             $table->text('introduction')->comment('简介')->nullable();
             $table->boolean('on_show')->comment('前台展示')->default(true);
-            $table->boolean('on_judgement')->comment('应届评委')->default(false);
             $table->unsignedInteger('display_order')->default(1000)->comment('排序');
             $table->unsignedInteger('review_count')->default(0)->comment('浏览量');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

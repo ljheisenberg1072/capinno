@@ -12,6 +12,10 @@ Route::group([
 
     $router->get('/', 'HomeController@index')->name('admin.home');
     $router->get('users', 'UsersController@index');
+    $router->get('users/create', 'UsersController@create');
+    $router->post('users', 'UsersController@store');
+    $router->get('users/{id}/edit', 'UsersController@edit');
+    $router->put('users/{id}', 'UsersController@update');
     $router->get('campaigns', 'CampaignsController@index');
     $router->get('campaigns/create', 'CampaignsController@create');
     $router->post('campaigns', 'CampaignsController@store');
@@ -36,10 +40,7 @@ Route::group([
     $router->put('news_articles/{id}', 'NewsArticlesController@update');
     $router->delete('news_articles/{id}', 'NewsArticlesController@destroy');
     $router->get('judges', 'JudgesController@index');
-    $router->get('judges/create', 'JudgesController@create');
-    $router->post('judges', 'JudgesController@store');
     $router->get('judges/{id}/edit', 'JudgesController@edit');
     $router->put('judges/{id}', 'JudgesController@update');
-    $router->delete('judges/{id}', 'JudgesController@destroy');
 
 });

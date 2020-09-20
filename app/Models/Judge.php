@@ -20,7 +20,6 @@ class Judge extends Model
 
     protected $casts = [
         'on_show' => 'boolean',
-        'on_judgement' => 'boolean',
     ];
 
     public function getAvatarUrlAttribute()
@@ -30,5 +29,11 @@ class Judge extends Model
             return $this->attributes['avatar'];
         }
         return Storage::disk('public')->url($this->attributes['avatar']);
+    }
+
+    //  评委与用户关联
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }

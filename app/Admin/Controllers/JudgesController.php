@@ -33,7 +33,6 @@ class JudgesController extends AdminController
         $grid->column('company', '就职单位');
         $grid->column('title', '头衔');
         $grid->column('on_show', '前台展示')->bool();
-        $grid->column('on_judgement', '应届评委')->bool();
         $grid->column('display_order', '排序')->editable()->sortable();
         $grid->column('review_count', '浏览量')->label()->sortable();
         $grid->column('created_at', '创建时间');
@@ -41,7 +40,12 @@ class JudgesController extends AdminController
         $grid->actions(function ($actions) {
             //  去掉查看
             $actions->disableView();
+            //  去掉删除
+            $actions->disableDelete();
         });
+
+        //  禁用创建按钮，只通过用户关联创建
+        $grid->disableCreateButton();
 
         //  去掉批量操作
         $grid->disableBatchActions();
@@ -51,8 +55,8 @@ class JudgesController extends AdminController
             $filter->disableIdFilter();
             //  添加字段过滤器
             $filter->like('name', '姓名');
-            $filter->like('title', '头衔');
             $filter->like('company', '就职单位');
+            $filter->like('title', '头衔');
         });
 
         return $grid;
@@ -76,15 +80,16 @@ class JudgesController extends AdminController
         $form->text('name', '姓名')->rules('required|max:255');
         $form->text('company', '就职单位')->rules('required|max:255');
         $form->text('title', '头衔')->rules('required|max:255');
-        $form->UEditor('introduction', '简介')->rules('nullable');
+        $form->textarea('introduction', '简介')->rules('nullable');
         $form->radio('on_show', '前台展示')->options([1 => '是', 0 => '否'])->default(1);
-        $form->radio('on_judgement', '应届评委')->options([1 => '是', 0 => '否'])->default(0);
         $form->text('display_order', '排序')->default(1000);
         $form->text('review_count', '浏览量')->default(0);
 
         $form->tools(function (Form\Tools $tools) {
             //  去掉查看按钮
             $tools->disableView();
+            //  去掉删除按钮
+            $tools->disableDelete();
         });
         $form->footer(function ($footer) {
             //  去掉查看 checkbox

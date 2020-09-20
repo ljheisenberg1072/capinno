@@ -36,6 +36,11 @@ body {
             margin: 0 20px;
             transition: .1s;
         }
+        @media (max-width: 1200px) {
+            .nav-link {
+                margin: 0 10px;
+            }
+        }
     }
 }
 
