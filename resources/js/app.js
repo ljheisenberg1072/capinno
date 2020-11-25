@@ -8,6 +8,12 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+require('./components/SelectSchool');
+require('./components/SelectCity');
+require('./components/RegistrationsMember');
+require('./components/RegistrationsTeacher');
+require('./components/RegistrationsCreateAndEdit');
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -19,13 +25,10 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default);
-
-require('./components/SelectSchool');
-require('./components/SelectCity');
-require('./components/UserSignsMember');
-require('./components/UserSignsTeacher');
-require('./components/UserSignsCreateAndEdit');
+// import ElementUI from 'element-ui';
+// import 'element-ui/lib/theme-chalk/index.css';
+// Vue.use(ElementUI);
+// Vue.component('upload-file', require('./components/UploadFile.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

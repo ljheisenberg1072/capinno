@@ -91,15 +91,15 @@ class UsersController extends AdminController
         $form->password('password_confirmation', '确认密码');
         $form->ignore('password_confirmation');
 
-        if (!$form->password) {
-            //  如果不填密码，则不提交密码更新
-            $form->ignore('password');
-        } else {
-            $form->saving(function (Form $form) {
+        $form->saving(function ($form) {
+            if (!$form->password) {
+                //  如果不填密码，则不提交密码更新
+                $form->ignore('password');
+            } else {
                 //  提交密码时，密码进行Hash加密
-               $form->password = Hash::make($form->password);
-            });
-        }
+                $form->password = Hash::make($form->password);
+            }
+        });
 
         return $form;
     }

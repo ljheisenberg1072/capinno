@@ -1,5 +1,5 @@
-// 注册一个名为 user-signs-create-and-edit 的组件
-Vue.component('user-signs-create-and-edit', {
+// 注册一个名为 registrations-create-and-edit 的组件
+Vue.component('registrations-create-and-edit', {
     // 组件的数据
     data() {
         return {

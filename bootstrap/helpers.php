@@ -1,11 +1,9 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 function route_class()
 {
     return str_replace('.','-',Route::currentRouteName());
-}
-
-function getUserSignId()
-{
-    return DB::table('user_signs')->where('user_id', Auth::user()->id)->value('id');
 }

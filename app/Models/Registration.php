@@ -4,10 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class UserSign extends Model
+class Registration extends Model
 {
     protected $fillable = [
-        'campaign_id',
         'leader_name',
         'leader_phone',
         'identity',

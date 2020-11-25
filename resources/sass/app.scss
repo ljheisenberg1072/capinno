@@ -1,3 +1,5 @@
+// FontAwesome
+@import "~@fortawesome/fontawesome-free/css/all.css";
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
 
@@ -491,7 +493,7 @@ html {
     }
 }
 
-/* guests page */
+/* judges page */
 
 .judges-index-page {
     .judges-title {
@@ -1358,6 +1360,75 @@ html {
         @media (max-width: 576px) {
             .password-reset-container {
                 padding: 40px 50px;
+            }
+        }
+    }
+}
+
+/* campaigns index page */
+
+.campaigns-index-page {
+    .campaign-area {
+        position: relative;
+        padding: 50px 0;
+    }
+}
+
+/* registrations create and edit page */
+
+.registrations-index-page, .registrations-create-page, .registrations-show-page, .registrations-edit-page {
+    .registration-area {
+        position: relative;
+        padding: 50px 0;
+    }
+}
+
+/* campaign_stages show page */
+
+.campaign_stages-show-page {
+    .campaign_stages-area {
+        position: relative;
+        padding: 50px 0;
+        .alert-hidden {
+            visibility: hidden;
+        }
+        .alert-show {
+            visibility: visible;
+            color: #e50012;
+        }
+    }
+}
+
+/* stage_submissions create_and_edit page */
+
+.stage_submissions-create-page, .stage_submissions-edit-page {
+    .stage_submissions-area {
+        position: relative;
+        padding: 50px 0;
+        input {
+            &:focus {
+                outline: none;
+            }
+        }
+        .alert-hidden {
+            visibility: hidden;
+        }
+        .alert-show {
+            visibility: visible;
+            color: #e50012;
+        }
+    }
+}
+
+/* stage_submissions show page */
+
+.stage_submissions-show-page {
+    .stage_submissions-area {
+        position: relative;
+        padding: 50px 0;
+        input {
+            &:focus {
+                outline: none;
             }
         }
     }

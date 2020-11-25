@@ -37,14 +37,14 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function campaigns()
+    public function myCampaigns()
     {
-        return $this->hasMany(Campaign::class);
+        return $this->hasMany(MyCampaign::class);
     }
 
-    public function userSigns()
+    public function registrations()
     {
-        return $this->hasMany(UserSign::class);
+        return $this->hasMany(Registration::class);
     }
 
     //  与评委关联

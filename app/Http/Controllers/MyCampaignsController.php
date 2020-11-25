@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Campaign;
-use App\Models\UserSign;
+use App\Models\Registration;
 
 class MyCampaignsController extends Controller
 {
     public function index()
     {
-        $my_campaigns = UserSign::query()->where('user_id', Auth::user()->id)->get();
-        $my_campaign_ids = UserSign::query()->where('user_id', Auth::user()->id)->pluck('campaign_id');
+        $my_campaigns = Registration::query()->where('user_id', Auth::user()->id)->get();
+        $my_campaign_ids = Registration::query()->where('user_id', Auth::user()->id)->pluck('campaign_id');
         $recommend_campaigns = Campaign::query()
             ->where('on_hold', true)
             ->whereNotIn('id', $my_campaign_ids)

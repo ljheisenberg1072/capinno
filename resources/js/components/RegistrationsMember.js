@@ -1,5 +1,5 @@
-// 注册一个名为 user-signs-member 的组件
-Vue.component('user-signs-member', {
+// 注册一个名为 registrations-member 的组件
+Vue.component('registrations-member', {
     // 定义组件的属性
     props: {
         // 用来初始化省市学校的值，在编辑时会用到

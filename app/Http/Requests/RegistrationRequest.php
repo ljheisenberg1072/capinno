@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests;
 
-class UserSignRequest extends Request
+class RegistrationRequest extends Request
 {
 
     public function rules()

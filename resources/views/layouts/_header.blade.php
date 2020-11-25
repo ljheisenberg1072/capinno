@@ -19,12 +19,12 @@
                 <!-- 登录注册开始 -->
                 @guest
                 <li class="nav-item mr-4" style="margin-top: 8px"><a class="btn btn-danger" href="{{ route('login') }}">报名参赛</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><i class="iconfont icon-user1" style="font-size: 24px;"></i></a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('login') }}"><i class="iconfont icon-user1" style="font-size: 28px;display: block;margin-top: 2px;"></i></a></li>
                 @else
-                <li class="nav-item mr-4" style="margin-top: 8px"><a class="btn btn-danger" href="@if($user_sign_id = getUserSignId()){{ route('user_signs.show', ['user_sign' => $user_sign_id]) }}@else{{ route('user_signs.create') }}@endif">报名参赛</a></li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle name" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding: 0.9rem 0.5rem;" title="{{ Auth::user()->name }}">
-                        <img src="https://cdn.learnku.com/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/60/h/60" class="img-fluid rounded-circle" width="28" height="28">
+                <li class="nav-item mr-4" style="margin-top: 8px"><a class="btn btn-danger" href="{{ route('campaigns.index') }}">报名参赛</a></li>
+                <li class="nav-item dropdown" style="margin-top: 1.5px;">
+                    <a href="#" class="nav-link dropdown-toggle name" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{ Auth::user()->name }}">
+                        <img src="/images/avatar.png" class="img-fluid rounded-circle" width="28" height="28">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a href="#" class="nav-item dropdown-item">个人中心</a>
