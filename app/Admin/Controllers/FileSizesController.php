@@ -8,7 +8,7 @@ use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class fileSizesController extends AdminController
+class FileSizesController extends AdminController
 {
     /**
      * Title for current resource.
