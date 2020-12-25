@@ -10,7 +10,7 @@
     "require": {
         "php": "^7.2",
         "codingyu/ueditor": "^3.0",
-        "encore/laravel-admin": "1.8.*",
+        "encore/laravel-admin": "^1.8",
         "fideloper/proxy": "^4.0",
         "intervention/image": "^2.5",
         "laravel/framework": "^6.0",

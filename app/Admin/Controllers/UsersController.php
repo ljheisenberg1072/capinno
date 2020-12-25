@@ -71,32 +71,35 @@ class UsersController extends AdminController
         $form->text('name', '用户名')->rules('required|string|max:255');
         $form->email('email', '邮箱')->creationRules(['required', 'string', 'email', 'max:255', "unique:users"])->updateRules(['required', 'string', 'email', 'max:255', "unique:users,email,{{id}}"]);
         $form->select('grade', '身份')->rules('required')->options([1 => '学生', 2 => '评委'])->when(2, function (Form $form) {
-            //  一对一关联judge表
-            $form->image('judge.avatar', '头像')->rules('required|image|dimensions:min_width=300')->resize(500, null, function ($constraint) {
-                //  设定最大宽度，高度等比例缩放
-                $constraint->aspectRatio();
-                //  防止裁剪时图片尺寸变大
-                $constraint->upsize();
-            })->uniqueName()->move("uploads/judges/" . date("Y/m/d", time()))->help('推荐尺寸：500px * 500px，宽度不能小于300px');
-            $form->text('judge.name', '姓名')->rules('required|max:255');
-            $form->text('judge.company', '就职单位')->rules('required|max:255');
-            $form->text('judge.title', '头衔')->rules('required|max:255');
-            $form->textarea('judge.introduction', '简介')->rules('nullable');
-            $form->radio('judge.on_show', '前台展示')->options([1 => '是', 0 => '否'])->default(1);
-            $form->text('judge.display_order', '排序')->default(1000);
-            $form->text('judge.review_count', '浏览量')->default(0);
-        })->default(1);
+           $form->hasMany('judges', '评委信息', function (Form\NestedForm $form) {
+               $form->image('avatar', '头像')->rules('required|image|dimensions:min_width=300')->resize(500, null, function ($constraint) {
+                   //  设定最大宽度，高度等比例缩放
+                   $constraint->aspectRatio();
+                   //  防止裁剪时图片尺寸变大
+                   $constraint->upsize();
+               })->uniqueName()->move("uploads/judges/" . date("Y/m/d", time()))->help('推荐尺寸：500px * 500px，宽度不能小于300px');
+               $form->text('name', '姓名')->rules('required|max:255');
+               $form->text('company', '就职单位')->rules('required|max:255');
+               $form->text('title', '头衔')->rules('required|max:255');
+               $form->textarea('introduction', '简介')->rules('nullable');
+               $form->radio('on_show', '前台展示')->options([1 => '是', 0 => '否'])->default(1);
+               $form->text('display_order', '排序')->default(1000);
+               $form->text('review_count', '浏览量')->default(0);
+           });
+        });
+
         $form->datetime('email_verified_at', '邮箱验证时间')->default(date('Y-m-d H:i:s'));
-        $form->password('password', '密码')->creationRules(['required', 'string', 'min:8', 'confirmed'])->updateRules(['nullable', 'string', 'min:8', 'confirmed']);
-        $form->password('password_confirmation', '确认密码');
+        $form->password('password', '密码')->rules(['required', 'string', 'min:8', 'confirmed'])->default(function ($form) {
+            return $form->model()->password;
+        });
+        $form->password('password_confirmation', '确认密码')->rules('required')->default(function ($form) {
+            return $form->model()->password;
+        });
         $form->ignore('password_confirmation');
 
-        $form->saving(function ($form) {
-            if (!$form->password) {
-                //  如果不填密码，则不提交密码更新
-                $form->ignore('password');
-            } else {
-                //  提交密码时，密码进行Hash加密
+        $form->saving(function (Form $form) {
+            //  修改密码时，密码进行Hash加密
+            if ($form->password && $form->password != $form->model()->password) {
                 $form->password = Hash::make($form->password);
             }
         });

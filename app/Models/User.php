@@ -37,10 +37,10 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function myCampaigns()
-    {
-        return $this->hasMany(MyCampaign::class);
-    }
+//    public function myCampaigns()
+//    {
+//        return $this->hasMany(MyCampaign::class);
+//    }
 
     public function registrations()
     {
@@ -48,8 +48,8 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     //  与评委关联
-    public function judge()
+    public function judges()
     {
-        return $this->hasOne(Judge::class);
+        return $this->hasMany(Judge::class);
     }
 }
