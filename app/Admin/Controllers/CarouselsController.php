@@ -26,11 +26,12 @@ class CarouselsController extends AdminController
     {
         $grid = new Grid(new Carousel());
 
+        $grid->model()->orderByDesc('id');
         $grid->column('id', 'ID')->sortable();
         $grid->column('image', '缩略图')->image(env('APP_URL').'/storage', 150, 60);
         $grid->column('is_show', '是否展示')->bool();
         $grid->column('order', '排序')->editable();
-        $grid->column('view_count', '浏览量')->editable();
+        $grid->column('view_count', '浏览量')->sortable();
         $grid->column('created_at', '创建时间');
         $grid->column('updated_at', '更新时间');
 

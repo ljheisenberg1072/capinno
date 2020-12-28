@@ -296,7 +296,7 @@
                             <h4>主办方</h4>
                         </div>
                         <div class="col-lg-12 mt-4">
-                            <img src="/images/partner/1-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/1-1-1.png" alt="" width="150" height="55">
                         </div>
                     </div>
                     <div class="cooperator-title row col-lg-9 text-center">
@@ -304,13 +304,13 @@
                             <h4>联合主办方</h4>
                         </div>
                         <div class="col-lg-4 col-6 mt-4">
-                            <img src="/images/partner/2-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-4 col-6 mt-4">
-                            <img src="/images/partner/2-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-4 col-6 mt-4">
-                            <img src="/images/partner/2-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-3.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -320,10 +320,10 @@
                             <h4>区域合作伙伴</h4>
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/3-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/3-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/3-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/3-2.png" alt="" width="150" height="55">
                         </div>
                     </div>
                     <div class="cooperator-title row col-lg-6 text-center">
@@ -331,10 +331,10 @@
                             <h4>孵化合作伙伴</h4>
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/2-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-3.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/4-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/4-2.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -344,31 +344,31 @@
                             <h4>企业合作伙伴</h4>
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-3.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-4.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-4.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-5.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-5.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-6.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-6.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-7.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-7.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-8.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-8.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-9.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-9.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -378,13 +378,13 @@
                             <h4>内容合作伙伴</h4>
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/6-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/6-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/6-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/6-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/6-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/6-3.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -394,43 +394,43 @@
                             <h4>支持合作伙伴</h4>
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-3.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-4.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-4.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-5.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-5.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-6.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-6.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-7.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-7.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-8.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-8.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-9.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-9.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-10.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-10.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-11.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-11.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-12.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-12.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-13.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-13.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>

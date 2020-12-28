@@ -14,10 +14,18 @@
                 <div class="carousel-inner">
                     @foreach($carousels as $key => $carousel)
                         <div class="carousel-item @if($key == 0) active @endif">
-                            <a href="{{ $carousel->link_url }}"><img class="d-block" src="{{ $carousel->carousel_image }}" alt="{{ $carousel->title }}" style="max-width: 100%;"></a>
-                            <div class="carousel-caption d-none d-md-block">
-                                <p>{{ $carousel->title }}</p>
-                            </div>
+                            @if($carousel->link)
+                                <a href="{{ $carousel->link_url }}" target="_blank">
+                                    <img class="d-block" src="{{ $carousel->carousel_image }}" alt="@if($carousel->title){{ $carousel->title }}@endif" style="max-width: 100%;">
+                                </a>
+                            @else
+                                <img class="d-block" src="{{ $carousel->carousel_image }}" alt="@if($carousel->title){{ $carousel->title }}@endif" style="max-width: 100%;">
+                            @endif
+                            @if($carousel->title)
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>{{ $carousel->title }}</p>
+                                </div>
+                            @endif
                         </div>
                     @endforeach
                 </div>
@@ -33,7 +41,7 @@
         </div>
     </div>
 </div>
-<section class="campaign-schedule">
+<section class="campaign-schedule" style="display: none;">
     <div class="container">
         <div class="row mt-100 mb-100">
             <div class="col-lg-12">
@@ -96,6 +104,20 @@
         </div>
     </div>
 </section>
+<section class="campaign-schedule">
+    <div class="container">
+        <div class="row mt-100 mb-100">
+            <div class="col-lg-12">
+                <div class="schedule-header text-center">
+                    <h2>挑战赛流程</h2>
+                </div>
+                <div class="schedule-body row text-center justify-content-center mt-5">
+                    <img src="/images/time-axis.jpg" alt="" width="1200" style="max-width: 100%;border-radius: 2rem;box-shadow: 5px 5px 10px #bdb5b5;" data-aos="flip-right">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="campaign-category" style="background-image: url('/images/category/background.png')">
     <div class="container">
         <div class="row">
@@ -133,7 +155,7 @@
                     <div class="tab-pane fade show active" id="pills-snack" role="tabpanel" aria-labelledby="pills-snack-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/snack.png" alt="零食">
+                                <img data-aos="zoom-in" src="/images/category/snack.png" alt="零食">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>零食:</p>
@@ -146,7 +168,7 @@
                     <div class="tab-pane fade" id="pills-beverage" role="tabpanel" aria-labelledby="pills-beverage-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/beverage.png" alt="饮料">
+                                <img data-aos="zoom-in" src="/images/category/beverage.png" alt="饮料">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>饮料:</p>
@@ -159,7 +181,7 @@
                     <div class="tab-pane fade" id="pills-dairy" role="tabpanel" aria-labelledby="pills-dairy-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/dairy.png" alt="乳及乳制品">
+                                <img data-aos="zoom-in" src="/images/category/dairy.png" alt="乳及乳制品">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>乳及乳制品:</p>
@@ -172,7 +194,7 @@
                     <div class="tab-pane fade" id="pills-candy" role="tabpanel" aria-labelledby="pills-candy-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/candy.png" alt="糖果&巧克力">
+                                <img data-aos="zoom-in" src="/images/category/candy.png" alt="糖果&巧克力">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>糖果&巧克力:</p>
@@ -185,7 +207,7 @@
                     <div class="tab-pane fade" id="pills-bakery" role="tabpanel" aria-labelledby="pills-bakery-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/bakery.png" alt="烘焙">
+                                <img data-aos="zoom-in" src="/images/category/bakery.png" alt="烘焙">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>烘焙:</p>
@@ -198,7 +220,7 @@
                     <div class="tab-pane fade" id="pills-functional" role="tabpanel" aria-labelledby="pills-functional-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/functional.png" alt="功能性食品">
+                                <img data-aos="zoom-in" src="/images/category/functional.png" alt="功能性食品">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>功能性食品:</p>
@@ -211,7 +233,7 @@
                     <div class="tab-pane fade" id="pills-service" role="tabpanel" aria-labelledby="pills-service-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/service.png" alt="餐饮&餐饮+">
+                                <img data-aos="zoom-in" src="/images/category/service.png" alt="餐饮&餐饮+">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>餐饮&餐饮+:</p>
@@ -224,7 +246,7 @@
                     <div class="tab-pane fade" id="pills-taste" role="tabpanel" aria-labelledby="pills-taste-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/taste.png" alt="中国味道">
+                                <img data-aos="zoom-in" src="/images/category/taste.png" alt="中国味道">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>中国味道:</p>
@@ -237,7 +259,7 @@
                     <div class="tab-pane fade" id="pills-experience" role="tabpanel" aria-labelledby="pills-experience-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img src="/images/category/experience.png" alt="食物体验">
+                                <img data-aos="zoom-in" src="/images/category/experience.png" alt="食物体验">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>食物体验:</p>
@@ -268,7 +290,7 @@
                     @foreach($news_articles as $news_article)
                         <div class="col-lg-3 col-sm-6 col-6 mb-4">
                             <div class="news-body">
-                                <a href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}"><img src="{{ $news_article->cover_url }}" alt=""></a>
+                                <a href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}"><img data-aos="zoom-in" src="{{ $news_article->cover_url }}" alt=""></a>
                                 <div class="news-content">
                                     <a href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}" title="{{ $news_article->title }}"><p class="news-text">{{ $news_article->title }}</p></a>
                                     <p class="text-right mr-3"><i class="iconfont icon-shijian mr-2"></i>{{ $news_article->created_at->diffForHumans() }}</p>
@@ -293,7 +315,7 @@
                     <div class="col-xl-2 col-lg-3 col-sm-4 col-6 mb-4">
                         <div class="judge-body">
                             <div class="avatar">
-                                <a href="{{ route('judges.show', ['judge' => $judge->id]) }}" target="_blank"><img src="{{ $judge->avatar_url }}" alt="{{ $judge->name }}"></a>
+                                <a href="{{ route('judges.show', ['judge' => $judge->id]) }}" target="_blank"><img data-aos="zoom-in" src="{{ $judge->avatar_url }}" alt="{{ $judge->name }}"></a>
                             </div>
                             <div class="judge-content mt-3">
                                 <h4>{{ $judge->name }}</h4>
@@ -324,7 +346,7 @@
                             <h4>主办方</h4>
                         </div>
                         <div class="col-lg-12 mt-4">
-                            <img src="/images/partner/1-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/1-1-1.png" alt="" width="150" height="55">
                         </div>
                     </div>
                     <div class="cooperator-title row col-lg-9 text-center">
@@ -332,13 +354,13 @@
                             <h4>联合主办方</h4>
                         </div>
                         <div class="col-lg-4 col-6 mt-4">
-                            <img src="/images/partner/2-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-4 col-6 mt-4">
-                            <img src="/images/partner/2-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-4 col-6 mt-4">
-                            <img src="/images/partner/2-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-3.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -348,10 +370,10 @@
                             <h4>区域合作伙伴</h4>
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/3-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/3-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/3-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/3-2.png" alt="" width="150" height="55">
                         </div>
                     </div>
                     <div class="cooperator-title row col-lg-6 text-center">
@@ -359,10 +381,10 @@
                             <h4>孵化合作伙伴</h4>
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/2-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/2-3.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-6 col-6 mt-4">
-                            <img src="/images/partner/4-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/4-2.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -372,31 +394,31 @@
                             <h4>企业合作伙伴</h4>
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-3.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-4.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-4.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-5.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-5.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-6.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-6.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-7.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-7.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-8.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-8.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/5-9.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/5-9.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -406,13 +428,13 @@
                             <h4>内容合作伙伴</h4>
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/6-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/6-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/6-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/6-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/6-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/6-3.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>
@@ -422,43 +444,43 @@
                             <h4>支持合作伙伴</h4>
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-1.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-1.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-2.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-2.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-3.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-3.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-4.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-4.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-5.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-5.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-6.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-6.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-7.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-7.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-8.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-8.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-9.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-9.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-10.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-10.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-11.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-11.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-12.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-12.png" alt="" width="150" height="55">
                         </div>
                         <div class="col-lg-2 col-6 mt-4">
-                            <img src="/images/partner/7-13.png" alt="" width="150" height="55">
+                            <img data-aos="zoom-in" src="/images/partner/7-13.png" alt="" width="150" height="55">
                         </div>
                     </div>
                 </div>

@@ -19,7 +19,7 @@
                         <div class="col-lg-12 content">
                             <p>PDF格式，单个不超过20M</p>
                             <p>报告类文档附上大赛logo水印</p>
-                            <p><a href="#"><img src="/images/capinno_logo.png" alt="" width="150"></a></p>
+                            <p><a href="#"><img src="/images/new_capinno_logo.png" alt="" width="150"></a></p>
                         </div>
                     </div>
                 </div>

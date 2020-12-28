@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top navbar-static-top">
     <div class="container">
         <a href="{{ url('/') }}" class="navbar-brand">
-            <img src="/images/capinno_logo.png" alt="" width="150px" height="25px">
+            <img src="/images/new_capinno_logo.png" alt="" width="150px" height="25px">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

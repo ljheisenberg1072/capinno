@@ -2,7 +2,7 @@
 @section('title', '参赛指引')
 
 @section('content')
-    <section class="campaign-schedule">
+    <section class="campaign-schedule" style="display: none;">
         <div class="container">
             <div class="row mt-100 mb-100">
                 <div class="col-lg-12">
@@ -60,6 +60,20 @@
                             <p class="schedule-time">2020年4月</p>
                             <p class="schedule-event">FBIC 现场路演</p>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="campaign-schedule">
+        <div class="container">
+            <div class="row mt-100 mb-100">
+                <div class="col-lg-12">
+                    <div class="schedule-header text-center">
+                        <h2>挑战赛流程</h2>
+                    </div>
+                    <div class="schedule-body row text-center justify-content-center mt-5">
+                        <img src="/images/time-axis.jpg" alt="" width="1200" style="max-width: 100%;border-radius: 2rem;box-shadow: 5px 5px 10px #bdb5b5;" data-aos="flip-right">
                     </div>
                 </div>
             </div>

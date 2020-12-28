@@ -12,6 +12,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <link rel="stylesheet" href="/iconfont/iconfont.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
     <div id="app" class="{{ route_class() }}-page">
@@ -23,6 +24,10 @@
     </div>
     <!-- JavaScripts -->
     <script src="{{ mix('js/app.js') }}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     @yield('scriptsAfterJs')
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>
