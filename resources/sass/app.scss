@@ -168,9 +168,18 @@ html {
         .news-body {
             border: 1px solid #f5ebec;
             border-radius: 3px;
-            img {
-                width: 100%;
-                height: 100%;
+            .hover-scale {
+                display: inline-block;
+                overflow: hidden;
+                img {
+                    width: 100%;
+                    height: 100%;
+                    cursor: pointer;
+                    transition: all 1s;
+                    &:hover {
+                        transform: scale(1.1);
+                    }
+                }
             }
             .news-content {
                 padding: 10px 10px;

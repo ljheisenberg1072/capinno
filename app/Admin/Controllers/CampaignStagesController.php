@@ -50,12 +50,12 @@ class CampaignStagesController extends AdminController
                 return $this->judgement_start_date.' 到 '.$this->judgement_end_date;
             }
         });
+        $grid->column('result_undetermined', '是否待定')->using([1 => '是', 0 => '否'])->dot([1 => 'danger', 0 => 'success']);
         $grid->column('result_date', '结果公布时间')->display(function () {
             if ($this->result_start_date && $this->result_end_date) {
                 return $this->result_start_date.' 到 '.$this->result_end_date;
             }
         });
-        $grid->column('result_undetermined', '是否待定')->using([1 => '是', 0 => '否'])->dot([1 => 'danger', 0 => 'success']);
         $grid->column('created_at', '创建时间');
 
         $grid->actions(function ($actions) {
@@ -99,8 +99,8 @@ class CampaignStagesController extends AdminController
         $form->datetimeRange('submission_start_time', 'submission_end_time', '提交作品时间')->rules('nullable')->help('如果“是否需要提交作品”选择为"否"，则此项忽略');
         $form->select('need_judgement', '是否需要评审')->options([0 => '否', 1 => '线上', 2 => '线下'])->rules('required')->default(1);
         $form->dateRange('judgement_start_date', 'judgement_end_date', '评审时间')->rules('nullable')->help('如果”是否需要评审“选择为"否"，则此项忽略');
-        $form->dateRange('result_start_date', 'result_end_date', '结果公布时间')->rules('nullable')->help('如果“结果公布时间待定”为“待定”，则此项忽略');
-        $form->radio('result_undetermined', '结果公布时间待定')->options([0 => '否', 1 => '是'])->default(0)->help('默认否');
+        $form->radio('result_undetermined', '结果公布是否待定')->options([0 => '否', 1 => '是'])->default(0)->help('默认否');
+        $form->dateRange('result_start_date', 'result_end_date', '结果公布时间')->rules('nullable')->help('如果“结果公布是否待定”为“是”，则此项忽略');
         $form->textarea('attention', '注意事项')->rules('nullable');
 
         $form->tools(function (Form\Tools $tools) {

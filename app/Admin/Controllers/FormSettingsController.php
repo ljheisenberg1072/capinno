@@ -79,9 +79,9 @@ class FormSettingsController extends AdminController
             });
         }
 
-        $form->text('works_name', '作品名称')->rules('required|max:255')->default('作品名称')->help('如无修改，默认填写”作品名称“');
-        $form->text('works_description', '作品说明')->rules('required|max:255')->help('如无修改，默认填写"作品说明"');
-        $form->textarea('attention', '注意事项')->rules('nullable')->help('填写具体的注意事项，可为空');
+        $form->text('works_name', '作品名称')->rules('required|max:255')->default('作品名称')->help('如无修改，请填写”作品名称“');
+        $form->text('works_description', '作品说明')->rules('required|max:255')->help('如无修改，请填写"作品说明"');
+        $form->text('attention', '注意事项')->rules('nullable')->help('如无修改，请填写"注意事项"，留空则在比赛阶段不予显示');
         $form->hasMany('files', '作品提交文档', function (Form\NestedForm $form) {
             $form->text('file_name', '文档名称');
             $form->select('file_type_id', '文档格式')->options(function () {

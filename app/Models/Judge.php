@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Judge extends Model
 {
+    use DefaultDatetimeFormat;
+
     protected $fillable = [
         'avatar',
         'name',

@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 
 class CampaignStage extends Model
 {
+    use DefaultDatetimeFormat;
+
     protected $fillable = [
         'stage_name',
         'need_submission',
@@ -15,9 +18,9 @@ class CampaignStage extends Model
         'need_judgement',
         'judgement_start_date',
         'judgement_end_date',
+        'result_undetermined',
         'result_start_date',
         'result_end_date',
-        'result_undetermined',
         'attention',
     ];
 

@@ -43,7 +43,7 @@
                                                         <div class="form-group row">
                                                             <label for="attention" class="col-sm-2 col-form-label">{{ $setting->attention }}：</label>
                                                             <div class="col-lg-10">
-                                                                <p class="form-control" id="attention" style="border: none;">{{ $setting->attention }}</p>
+                                                                <p class="form-control px-0" id="attention" style="border: none;">{{ $campaign_stage->attention }}</p>
                                                             </div>
                                                         </div>
                                                     @endif

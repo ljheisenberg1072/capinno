@@ -23,9 +23,9 @@ class CreateCampaignStagesTable extends Migration
             $table->unsignedTinyInteger('need_judgement')->comment('是否需要评审');
             $table->date('judgement_start_date')->comment('评审开始日期')->nullable();
             $table->date('judgement_end_date')->comment('评审结束日期')->nullable();
+            $table->unsignedTinyInteger('result_undetermined')->comment('结果公布是否待定');
             $table->date('result_start_date')->comment('结果公布开始日期');
             $table->date('result_end_date')->comment('结果公布结束日期');
-            $table->unsignedTinyInteger('result_undetermined')->comment('结果是否待定');
             $table->text('attention')->comment('注意事项')->nullable();
             $table->unsignedBigInteger('campaign_id');
             $table->foreign('campaign_id')->references('id')->on('campaigns')->onDelete('cascade');

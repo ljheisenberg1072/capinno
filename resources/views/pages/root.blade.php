@@ -41,7 +41,7 @@
         </div>
     </div>
 </div>
-<section class="campaign-schedule" style="display: none;">
+<section class="campaign-schedule">
     <div class="container">
         <div class="row mt-100 mb-100">
             <div class="col-lg-12">
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="schedule-name">初赛</div>
-                        <p class="schedule-time">9月16日~10月13日</p>
+                        <p class="schedule-time">01月03日~02月14日</p>
                         <p class="schedule-event">设计创意提案提交 评审</p>
                     </div>
                     <div class="col-lg-2 col-6 schedule-item">
@@ -65,8 +65,8 @@
                                 <span><i class="iconfont icon-taotaisai01" style="font-size: 40px;"></i></span>
                             </div>
                         </div>
-                        <div class="schedule-name">复赛</div>
-                        <p class="schedule-time">10月28日~11月29日</p>
+                        <div class="schedule-name">决赛</div>
+                        <p class="schedule-time">02月21日~04月04日</p>
                         <p class="schedule-event">产品商业计划书提交 评审</p>
                     </div>
                     <div class="col-lg-2 col-6 schedule-item">
@@ -75,8 +75,8 @@
                                 <span><i class="iconfont icon-bisai" style="font-size: 40px;"></i></span>
                             </div>
                         </div>
-                        <div class="schedule-name">决赛答辩</div>
-                        <p class="schedule-time">2020年1月</p>
+                        <div class="schedule-name">决赛路演</div>
+                        <p class="schedule-time">04月18日</p>
                         <p class="schedule-event">样品提交 + 决赛现场答辩</p>
                     </div>
                     <div class="col-lg-2 col-6 schedule-item">
@@ -96,8 +96,8 @@
                             </div>
                         </div>
                         <div class="schedule-name">商业路演(总决赛)</div>
-                        <p class="schedule-time">2020年4月</p>
-                        <p class="schedule-event">FBIC 现场路演</p>
+                        <p class="schedule-time">04月25日~05月30日</p>
+                        <p class="schedule-event">FBIC2021 现场路演</p>
                     </div>
                 </div>
             </div>
@@ -290,7 +290,7 @@
                     @foreach($news_articles as $news_article)
                         <div class="col-lg-3 col-sm-6 col-6 mb-4">
                             <div class="news-body">
-                                <a href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}"><img data-aos="zoom-in" src="{{ $news_article->cover_url }}" alt=""></a>
+                                <a class="hover-scale" href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}"><img data-aos="zoom-in" src="{{ $news_article->cover_url }}" alt=""></a>
                                 <div class="news-content">
                                     <a href="{{ route('news_articles.show', ['news_article' => $news_article->id]) }}" title="{{ $news_article->title }}"><p class="news-text">{{ $news_article->title }}</p></a>
                                     <p class="text-right mr-3"><i class="iconfont icon-shijian mr-2"></i>{{ $news_article->created_at->diffForHumans() }}</p>
@@ -542,9 +542,13 @@
     <script>
         $(document).ready(function () {
             //  轮播图参数设置
-           $('.carousel').carousel({
+            $('.carousel').carousel({
                interval: 3000,
-           })
+            });
+            //   赛事新闻图片效果
+            $('.hover-scale img').hover(function() {
+
+            });
         });
     </script>
 @stop

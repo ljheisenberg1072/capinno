@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 
 class CampaignCategory extends Model
 {
+    use DefaultDatetimeFormat;
+
     protected $fillable = [
         'category_name',
         'on_show',

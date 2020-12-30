@@ -17,7 +17,7 @@ class CreateFormSettingsTable extends Migration
             $table->bigIncrements('id');
             $table->string('works_name')->comment('作品名称');
             $table->string('works_description')->comment('作品说明');
-            $table->text('attention')->nullable(true)->comment('注意事项');
+            $table->string('attention')->nullable(true)->comment('注意事项');
             $table->unsignedBigInteger('campaign_stage_id')->comment('比赛阶段Id');
             $table->foreign('campaign_stage_id')->references('id')->on('campaign_stages')->onDelete('cascade');
             $table->timestamps();

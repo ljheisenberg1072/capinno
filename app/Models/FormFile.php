@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 
 class FormFile extends Model
 {
+    use DefaultDatetimeFormat;
+
     protected $fillable = [
         'file_name',
         'file_type_id',

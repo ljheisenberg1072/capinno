@@ -2,10 +2,13 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 
 class Registration extends Model
 {
+    use DefaultDatetimeFormat;
+
     protected $fillable = [
         'leader_name',
         'leader_phone',

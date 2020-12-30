@@ -2,12 +2,15 @@
 
 namespace App\Models;
 
+use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 
 class Carousel extends Model
 {
+    use DefaultDatetimeFormat;
+
     protected $fillable = [
         'image',
         'title',
