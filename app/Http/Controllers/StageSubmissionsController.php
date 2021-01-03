@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Handlers\FileUploadHandler;
 use App\Models\Campaign;
+use App\Models\CampaignCategory;
 use App\Models\Registration;
 use App\Models\StageSubmission;
 use Illuminate\Http\Request;
@@ -19,6 +20,8 @@ class StageSubmissionsController extends Controller
     {
         //  根据当前比赛节点获取对应大赛ID
         $campaignId = CampaignStage::query()->where('id', $campaign_stage->id)->pluck('campaign_id');
+        //  根据大赛ID获取比赛类目
+        $campaignCategories = CampaignCategory::query()->where('campaign_id', $campaignId)->orderBy('display_order')->get(['id', 'category_name']);
         //  根据大赛ID获取比赛第一个节点
         $firstStageId = CampaignStage::query()->where('campaign_id', $campaignId)->value('id');
         //  根据大赛ID获取比赛节点名称
@@ -36,7 +39,7 @@ class StageSubmissionsController extends Controller
             }
         }
 
-        return view('stage_submissions.create', compact('campaign', 'campaign_stage', 'stage_submission', 'stageSubmissions', 'firstStageId', 'campaignStages', 'registrations'));
+        return view('stage_submissions.create', compact('campaign', 'campaign_stage', 'stage_submission', 'stageSubmissions', 'firstStageId', 'campaignStages', 'campaignCategories',  'registrations'));
     }
 
     public function uploadFile(Request $request, FileUploadHandler $uploader)
@@ -53,8 +56,15 @@ class StageSubmissionsController extends Controller
 
     public function store(Campaign $campaign, CampaignStage $campaign_stage, StageSubmission $stage_submission, StageSubmissionRequest $request)
     {
-        $data['works_name'] = $request->input('works_name');
-        $data['works_description'] = $request->input('works_description');
+        if($request->input('works_name')) {
+            $data['works_name'] = $request->input('works_name');
+        }
+        if($request->input('works_description')) {
+            $data['works_description'] = $request->input('works_description');
+        }
+        if($request->input('works_category')) {
+            $data['works_category'] = $request->input('works_category');
+        }
         $data['submission_files'] = $request->input('submission_files');
         $data['campaign_stage_id'] = $campaign_stage->id;
         $data['user_id'] = Auth::user()->id;
@@ -68,6 +78,8 @@ class StageSubmissionsController extends Controller
     {
         //  根据当前比赛节点获取对应大赛ID
         $campaignId = CampaignStage::query()->where('id', $campaign_stage->id)->pluck('campaign_id');
+        //  根据大赛ID获取比赛类目
+        $campaignCategories = CampaignCategory::query()->where('campaign_id', $campaignId)->orderBy('display_order')->get(['id', 'category_name']);
         //  根据大赛ID获取比赛第一个节点
         $firstStageId = CampaignStage::query()->where('campaign_id', $campaignId)->value('id');
         //  根据大赛ID获取比赛节点名称
@@ -85,13 +97,15 @@ class StageSubmissionsController extends Controller
             }
         }
 
-        return view('stage_submissions.show', compact('campaign', 'campaign_stage', 'stage_submission', 'stageSubmissions', 'firstStageId', 'campaignStages', 'registrations'));
+        return view('stage_submissions.show', compact('campaign', 'campaign_stage', 'stage_submission', 'stageSubmissions', 'firstStageId', 'campaignStages', 'campaignCategories', 'registrations'));
     }
 
     public function edit(Campaign $campaign, CampaignStage $campaign_stage, StageSubmission $stage_submission)
     {
         //  根据当前比赛节点获取对应大赛ID
         $campaignId = CampaignStage::query()->where('id', $campaign_stage->id)->pluck('campaign_id');
+        //  根据大赛ID获取比赛类目
+        $campaignCategories = CampaignCategory::query()->where('campaign_id', $campaignId)->orderBy('display_order')->get(['id', 'category_name']);
         //  根据大赛ID获取比赛第一个节点
         $firstStageId = CampaignStage::query()->where('campaign_id', $campaignId)->value('id');
         //  根据大赛ID获取比赛节点名称
@@ -109,13 +123,20 @@ class StageSubmissionsController extends Controller
             }
         }
 
-        return view('stage_submissions.edit', compact('campaign', 'campaign_stage', 'stage_submission', 'stageSubmissions', 'firstStageId', 'campaignStages', 'registrations'));
+        return view('stage_submissions.edit', compact('campaign', 'campaign_stage', 'stage_submission', 'stageSubmissions', 'firstStageId', 'campaignStages', 'campaignCategories', 'registrations'));
     }
 
     public function update(Campaign $campaign, CampaignStage $campaign_stage, StageSubmission $stage_submission, StageSubmissionRequest $request)
     {
-        $data['works_name'] = $request->input('works_name');
-        $data['works_description'] = $request->input('works_description');
+        if($request->input('works_name')) {
+            $data['works_name'] = $request->input('works_name');
+        }
+        if($request->input('works_description')) {
+            $data['works_description'] = $request->input('works_description');
+        }
+        if($request->input('works_category')) {
+            $data['works_category'] = $request->input('works_category');
+        }
         if($request->input('submission_files')) {
             $data['submission_files'] = $request->input('submission_files');
         }

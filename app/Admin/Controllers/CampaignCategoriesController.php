@@ -34,7 +34,7 @@ class CampaignCategoriesController extends AdminController
         })->label();
         $grid->column('category_name', '比赛类目名称');
         $grid->column('on_show', '前台显示')->bool();
-        $grid->column('display_order', '排序')->sortable();
+        $grid->column('display_order', '排序')->sortable()->editable();
         $grid->column('created_at', '创建时间');
 
         $grid->actions(function ($actions) {

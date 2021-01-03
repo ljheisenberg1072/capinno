@@ -12,6 +12,7 @@ class StageSubmission extends Model
     protected $fillable = [
         'works_name',
         'works_description',
+        'works_category',
         'submission_files',
         'campaign_stage_id',
         'user_id'

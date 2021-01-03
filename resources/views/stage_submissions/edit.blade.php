@@ -20,20 +20,34 @@
                                             {{ csrf_field() }}
                                             @if(count($settings = $campaign_stage->settings))
                                                 @foreach($settings as $setting)
-                                                    <div class="form-group row">
+                                                    <div class="form-group row" @if($firstStageId != $campaign_stage->id) style="display: none;" @endif id="div-name">
                                                         <label for="works_name" class="col-sm-2 col-form-label">{{ $setting->works_name }}：</label>
                                                         <div class="col-lg-10">
                                                             <input type="text" class="form-control" id="works_name" name="works_name" data-name="{{ $setting->works_name }}" placeholder="{{ $setting->works_name }}" value="{{ old('works_name', $stage_submission->works_name) }}">
                                                             <p class="alert-hidden mt-1">@if($errors->has('works_name')) {{ $errors->first('works_name') }}@else请输入{{ $setting->works_name }}@endif</p>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group row">
+                                                    <div class="form-group row" @if($firstStageId != $campaign_stage->id) style="display: none;" @endif id="div-description">
                                                         <label for="works_description" class="col-sm-2 col-form-label">{{ $setting->works_description }}：</label>
                                                         <div class="col-lg-10">
                                                             <textarea class="form-control" rows="5" id="works_description" name="works_description" data-description="{{ $setting->works_description }}" placeholder="简单阐述一下{{ $setting->works_description }}">{{ old('works_description', $stage_submission->works_description) }}</textarea>
                                                             <p class="alert-hidden mt-1">@if($errors->has('works_description')) {{ $errors->first('works_description') }}@else请输入{{ $setting->works_description }}@endif</p>
                                                         </div>
                                                     </div>
+                                                    @if(count($campaignCategories))
+                                                        <div class="form-group row" @if($firstStageId != $campaign_stage->id) style="display: none;" @endif id="div-category">
+                                                            <label for="works_category" class="col-sm-2 col-form-label">作品主题</label>
+                                                            <div class="col-lg-10">
+                                                                <select class="form-control" id="works_category" name="works_category">
+                                                                    <option value="" style="display: none;"></option>
+                                                                    @foreach($campaignCategories as $campaignCategory)
+                                                                        <option value="{{ $campaignCategory->id }}" @if($stage_submission->works_category == $campaignCategory->id) selected @endif>{{ $campaignCategory->category_name }}</option>
+                                                                    @endforeach
+                                                                </select>
+                                                                <p class="alert-hidden mt-1">@if($errors->has('works_category')) {{ $errors->first('works_category') }}@else请选择作品主题@endif</p>
+                                                            </div>
+                                                        </div>
+                                                    @endif
                                                     @if($setting->attention)
                                                         <div class="form-group row">
                                                             <label for="attention" class="col-sm-2 col-form-label">{{ $setting->attention }}：</label>
@@ -281,37 +295,46 @@
                     $(this).css('visibility', 'hidden');
                 });
             }
-            $('#works_name').focusout(function() {
-                if($('#works_name').val()) {
-                    $('#works_name').next().removeClass('alert-show');
-                }
-            });
-            $('#works_description').focusout(function() {
-                if($('#works_description').val()) {
-                    $('#works_description').next().removeClass('alert-show');
-                }
-            });
+            const worksName = $('#works_name');
+            const worksDescription = $('#works_description');
+            const worksCategory = $('#works_category');
             //  提交按钮相关
             $('.final-submission').click(function() {
-                if(!$('#works_name').val()) {
-                    $('#works_name').next().addClass('alert-show');
-                    Swal.fire({
-                        title: $('#works_name').attr('data-name')+"不能为空",
-                        icon: 'warning',
-                        confirmButtonText: '确定',
-                        timer: 3000,
-                    });
-                    return false;
+                if($('#div-name').css('display') != 'none') {
+                    if(!worksName.val()) {
+                        worksName.next().addClass('alert-show');
+                        Swal.fire({
+                            title: worksName.attr('data-name')+"不能为空",
+                            icon: 'warning',
+                            confirmButtonText: '确定',
+                            timer: 3000,
+                        });
+                        return false;
+                    }
                 }
-                if(!$('#works_description').val()) {
-                    $('#works_description').next().addClass('alert-show');
-                    Swal.fire({
-                        title: $('#works_description').attr('data-description')+"不能为空",
-                        icon: 'warning',
-                        confirmButtonText: '确定',
-                        timer: 3000,
-                    });
-                    return false;
+                if($('#div-description').css('display') != 'none') {
+                    if(!worksDescription.val()) {
+                        worksDescription.next().addClass('alert-show');
+                        Swal.fire({
+                            title: worksDescription.attr('data-description')+"不能为空",
+                            icon: 'warning',
+                            confirmButtonText: '确定',
+                            timer: 3000,
+                        });
+                        return false;
+                    }
+                }
+                if($('#div-category').css('display') != 'none') {
+                    if(!worksCategory.val()) {
+                        worksCategory.next().addClass('alert-show');
+                        Swal.fire({
+                            title: worksCategory.attr('data-description')+"不能为空",
+                            icon: 'warning',
+                            confirmButtonText: '确定',
+                            timer: 3000,
+                        });
+                        return false;
+                    }
                 }
                 for(let j=0;j<count;j++) {
                     const submission = $("."+'submission_'+j);

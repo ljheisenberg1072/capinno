@@ -189,19 +189,19 @@
                                     @foreach($registration->guide_teachers as $teacher)
                                         <div class="form-group row">
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="{{ $teacher['teacher_name'] }}" placeholder="其他作者姓名" disabled>
+                                                <input type="text" class="form-control" value="@if($teacher['teacher_name']){{ $teacher['teacher_name'] }}@else 无 @endif" placeholder="指导老师姓名" disabled>
                                             </div>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="{{ $teacher['teacher_phone'] }}" placeholder="其他作者电话" disabled>
+                                                <input type="text" class="form-control" value="@if($teacher['teacher_phone']){{ $teacher['teacher_phone'] }}@else 无 @endif" placeholder="指导老师电话" disabled>
                                             </div>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="{{ $teacher['teacher_email'] }}" placeholder="邮箱" disabled>
+                                                <input type="text" class="form-control" value="@if($teacher['teacher_email']){{ $teacher['teacher_email'] }}@else 无 @endif" placeholder="邮箱" disabled>
                                             </div>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="{{ $teacher['teacher_working_company'] }}" placeholder="就职单位" disabled>
+                                                <input type="text" class="form-control" value="@if($teacher['teacher_working_company']){{ $teacher['teacher_working_company'] }}@else 无 @endif" placeholder="就职单位" disabled>
                                             </div>
                                             <div class="col-sm-2">
-                                                <input type="text" class="form-control" value="{{ $teacher['teacher_position'] }}" placeholder="职位" disabled>
+                                                <input type="text" class="form-control" value="@if($teacher['teacher_position']){{ $teacher['teacher_position'] }}@else 无 @endif" placeholder="职位" disabled>
                                             </div>
                                         </div>
                                     @endforeach

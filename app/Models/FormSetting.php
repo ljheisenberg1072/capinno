@@ -15,6 +15,11 @@ class FormSetting extends Model
         'attention'
     ];
 
+    public function campaignStage()
+    {
+        return $this->belongsTo(CampaignStage::class);
+    }
+
     public function files()
     {
         return $this->hasMany(FormFile::class);

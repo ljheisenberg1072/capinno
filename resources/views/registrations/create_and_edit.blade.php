@@ -232,19 +232,19 @@
                                         <div>
                                             <div class="form-group row" v-for="(teacher,index) in teachers" :key="index">
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control" v-model="teacher.teacher_name" placeholder="指导老师姓名" required>
+                                                    <input type="text" class="form-control" v-model="teacher.teacher_name" placeholder="指导老师姓名">
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control" v-model="teacher.teacher_phone" placeholder="指导老师电话" required>
+                                                    <input type="text" class="form-control" v-model="teacher.teacher_phone" placeholder="指导老师电话">
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control" v-model="teacher.teacher_email" placeholder="邮箱" required>
+                                                    <input type="text" class="form-control" v-model="teacher.teacher_email" placeholder="邮箱">
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control" v-model="teacher.teacher_working_company" placeholder="就职单位" required>
+                                                    <input type="text" class="form-control" v-model="teacher.teacher_working_company" placeholder="就职单位">
                                                 </div>
                                                 <div class="col-sm-2">
-                                                    <input type="text" class="form-control" v-model="teacher.teacher_position" placeholder="职位" required>
+                                                    <input type="text" class="form-control" v-model="teacher.teacher_position" placeholder="职位">
                                                 </div>
                                                 <div class="col-sm-1 row mt-2">
                                                     <div class="col-sm-6">
@@ -288,3 +288,20 @@
         </div>
     </section>
 @endsection
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function() {
+            $('.stage').click(function() {
+                if($('.nav .btn-primary').hasClass('no-registered')) {
+                    Swal.fire({
+                       title: '您还没有报名，请先报名！',
+                       icon: 'error',
+                       showConfirmButton: false,
+                       timer: 3000,
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+@stop

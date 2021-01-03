@@ -19,18 +19,33 @@
                                             {{ csrf_field() }}
                                             @if(count($settings = $campaign_stage->settings))
                                                 @foreach($settings as $setting)
-                                                    <div class="form-group row">
-                                                        <label for="works_name" class="col-sm-2 col-form-label">{{ $setting->works_name }}：</label>
-                                                        <div class="col-lg-10">
-                                                            <input type="text" class="form-control" id="works_name" name="works_name" value="{{ $stage_submission->works_name }}" disabled>
+                                                    @if($firstStageId == $campaign_stage->id)
+                                                        <div class="form-group row">
+                                                            <label for="works_name" class="col-sm-2 col-form-label">{{ $setting->works_name }}：</label>
+                                                            <div class="col-lg-10">
+                                                                <input type="text" class="form-control" id="works_name" name="works_name" value="{{ $stage_submission->works_name }}" disabled>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="form-group row">
-                                                        <label for="works_description" class="col-sm-2 col-form-label">{{ $setting->works_description }}：</label>
-                                                        <div class="col-lg-10">
-                                                            <textarea class="form-control" rows="5" id="works_description" name="works_description" disabled>{{ $stage_submission->works_description }}</textarea>
+                                                        <div class="form-group row">
+                                                            <label for="works_description" class="col-sm-2 col-form-label">{{ $setting->works_description }}：</label>
+                                                            <div class="col-lg-10">
+                                                                <textarea class="form-control" rows="5" id="works_description" name="works_description" disabled>{{ $stage_submission->works_description }}</textarea>
+                                                            </div>
                                                         </div>
-                                                    </div>
+                                                        @if(count($campaignCategories))
+                                                            <div class="form-group row">
+                                                                <label for="works_category" class="col-sm-2 col-form-label">作品主题</label>
+                                                                <div class="col-lg-10">
+                                                                    <select class="form-control" id="works_category" name="works_category" disabled>
+                                                                        <option value="" style="display: none;"></option>
+                                                                        @foreach($campaignCategories as $campaignCategory)
+                                                                            <option value="{{ $campaignCategory->id }}" @if($stage_submission->works_category == $campaignCategory->id) selected @endif>{{ $campaignCategory->category_name }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        @endif
+                                                    @endif
                                                     @if($setting->attention)
                                                         <div class="form-group row">
                                                             <label for="attention" class="col-sm-2 col-form-label">{{ $setting->attention }}：</label>

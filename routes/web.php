@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckLoginAndVerify;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,8 +14,7 @@
 |
 */
 
-Route::get('/', 'PagesController@root')->name('root');
-
+Route::get('/', 'PagesController@root')->name('root')->middleware(CheckLoginAndVerify::class);
 Route::get('carousels', 'RegistrationsController@index')->name('carousels.index');
 Route::get('carousels/{carousel}', 'RegistrationsController@show')->name('carousels.show');
 Route::get('news_articles', 'NewsArticlesController@index')->name('news_articles.index');

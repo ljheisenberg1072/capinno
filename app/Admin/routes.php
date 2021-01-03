@@ -61,9 +61,9 @@ Route::group([
     $router->put('file_types/{id}', 'FileTypesController@update');
     $router->delete('file_types/{id}', 'FileTypesController@destroy');
     $router->get('form_settings', 'FormSettingsController@index');
-    $router->get('form_settings/create', 'FormSettingsController@create');
+    $router->get('form_settings/create', 'FormSettingsController@create')->name('form_settings.create');
     $router->post('form_settings', 'FormSettingsController@store');
-    $router->get('form_settings/{id}/edit', 'FormSettingsController@edit');
+    $router->get('form_settings/{id}/edit', 'FormSettingsController@edit')->name('form_settings.edit');
     $router->put('form_settings/{id}', 'FormSettingsController@update');
 
 });

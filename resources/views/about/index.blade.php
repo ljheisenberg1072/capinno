@@ -2,12 +2,12 @@
 @section('title', '关于我们')
 
 @section('content')
-<section class="campaign-introduction" style="background-image: url('/images/category/background.png')">
+<section class="campaign-introduction">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">
                 <h2 class="text-center mb-5">大赛介绍</h2>
-                <p><strong>CAPINNO</strong>携手全球食品、设计、商科等高校联合食品行业巨头企业、知名原辅料公司、优质技术服务公司、渠道平台和媒体等发起了"<strong>CAPINNO全球食品饮料商业挑战赛</strong>"</p>
+                <p><strong>CAPINNO</strong>携手全球食品、设计、商科等高校联合食品行业巨头企业、知名原辅料公司、优质技术服务公司、渠道平台和媒体等发起了"<strong>CAPINNO全球食品饮料挑战赛</strong>"</p>
                 <p>处于中国前所未有的消费时代变革背景下，00后也都开始陆续踏入成年期，新一代年轻人的价值观、事业观愈发不甘束缚于传统。随着个性化宣扬，"标签青年"的更多需求被逐渐挖掘；社交营销改变了传统营销思路，可以精准捕捉目标消费群体；同时，这代人也是具有态度的一群人，在突破传统的同时，也宣扬着具有年轻属性的新国潮。</p>
                 <p><strong>CAPINNO</strong>致力于孵化小而美的新生代品牌。应对消费环境和新生代更新迭代，<strong>CAPINNO</strong>希望通过这场商业挑战赛挖掘一批创新产品及概念，打造食品创新系统，引领食品创新潮流。</p>
             </div>
@@ -253,14 +253,14 @@
         </div>
     </div>
 </section>
-<section class="campaign-contact" style="background-image: url('/images/category/background.png')">
+<section class="campaign-contact">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <h2 class="text-center mb-5">联系我们</h2>
             </div>
             <div class="col-lg-4 mt-3">
-                <div class="col-lg-10 offset-lg-1 bg-color" style="padding: 30px 30px">
+                <div class="col-lg-10 offset-lg-1 bg-color" style="padding: 30px 30px;border-radius: 25px;">
                     <h5>大赛官网</h5>
                     <p>www.capinno.com</p>
                     <h5>大赛邮箱</h5>
@@ -272,12 +272,12 @@
                 </div>
             </div>
             <div class="col-lg-4 mt-3">
-                <div class="col-lg-10 offset-lg-1 bg-color text-center" style="padding: 80px 30px">
+                <div class="col-lg-10 offset-lg-1 bg-color text-center" style="padding: 80px 30px;border-radius: 50%;">
                     <div>
                         <img src="/images/capinno_gongzhonghao.jpg" alt="" width="90" height="90">
                     </div>
                     <h6 class="mt-4">CAPINNO</h6>
-                    <h6>全球食品饮料商业挑战赛</h6>
+                    <h6>全球食品饮料挑战赛</h6>
                 </div>
             </div>
         </div>

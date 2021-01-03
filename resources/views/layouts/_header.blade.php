@@ -27,9 +27,9 @@
                         <img src="/images/avatar.png" class="img-fluid rounded-circle" width="28" height="28">
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a href="#" class="nav-item dropdown-item">个人中心</a>
-                        <a href="#" class="nav-item dropdown-item">我的赛事</a>
-                        <a href="#" class="nav-item dropdown-item">系统通知</a>
+                        <a href="#" class="nav-item dropdown-item" style="display: none;">个人中心</a>
+                        <a href="{{ route('campaigns.index') }}" class="nav-item dropdown-item">我的赛事</a>
+                        <a href="#" class="nav-item dropdown-item" style="display: none;">系统通知</a>
                         <a href="#" class="nav-item dropdown-item" id="logout" onclick="event.preventDefault();document.getElementById('logout-form').submit();">退出登录</a>
                         <form action="{{ route('logout') }}" id="logout-form" method="POST" style="display: none;">
                             {{ csrf_field() }}

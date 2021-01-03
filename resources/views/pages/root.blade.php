@@ -41,15 +41,15 @@
         </div>
     </div>
 </div>
-<section class="campaign-schedule">
+<section class="campaign-schedule" style="display: none;">
     <div class="container">
-        <div class="row mt-100 mb-100">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="schedule-header text-center">
                     <h2>参赛流程</h2>
                 </div>
                 <div class="schedule-body row text-center justify-content-center mt-5">
-                    <div class="col-lg-2 col-6 schedule-item">
+                    <div class="col-lg-3 col-6 schedule-item">
                         <div class="top">
                             <div class="img">
                                 <span><i class="iconfont icon-duoren" style="font-size: 40px;"></i></span>
@@ -59,7 +59,7 @@
                         <p class="schedule-time">01月03日~02月14日</p>
                         <p class="schedule-event">设计创意提案提交 评审</p>
                     </div>
-                    <div class="col-lg-2 col-6 schedule-item">
+                    <div class="col-lg-3 col-6 schedule-item">
                         <div class="top">
                             <div class="img">
                                 <span><i class="iconfont icon-taotaisai01" style="font-size: 40px;"></i></span>
@@ -69,7 +69,7 @@
                         <p class="schedule-time">02月21日~04月04日</p>
                         <p class="schedule-event">产品商业计划书提交 评审</p>
                     </div>
-                    <div class="col-lg-2 col-6 schedule-item">
+                    <div class="col-lg-3 col-6 schedule-item">
                         <div class="top">
                             <div class="img">
                                 <span><i class="iconfont icon-bisai" style="font-size: 40px;"></i></span>
@@ -79,23 +79,13 @@
                         <p class="schedule-time">04月18日</p>
                         <p class="schedule-event">样品提交 + 决赛现场答辩</p>
                     </div>
-                    <div class="col-lg-2 col-6 schedule-item">
-                        <div class="top">
-                            <div class="img">
-                                <span><i class="iconfont icon-mianshi" style="font-size: 40px;"></i></span>
-                            </div>
-                        </div>
-                        <div class="schedule-name">创业面试</div>
-                        <p class="schedule-time">2020年1月</p>
-                        <p class="schedule-event">创业营选拔</p>
-                    </div>
-                    <div class="col-lg-2 col-6 schedule-item">
+                    <div class="col-lg-3 col-6 schedule-item">
                         <div class="top">
                             <div class="img">
                                 <span><i class="iconfont icon-bisai1" style="font-size: 40px;"></i></span>
                             </div>
                         </div>
-                        <div class="schedule-name">商业路演(总决赛)</div>
+                        <div class="schedule-name">商业路演</div>
                         <p class="schedule-time">04月25日~05月30日</p>
                         <p class="schedule-event">FBIC2021 现场路演</p>
                     </div>
@@ -106,7 +96,7 @@
 </section>
 <section class="campaign-schedule">
     <div class="container">
-        <div class="row mt-100 mb-100">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="schedule-header text-center">
                     <h2>挑战赛流程</h2>
@@ -118,7 +108,7 @@
         </div>
     </div>
 </section>
-<section class="campaign-category" style="background-image: url('/images/category/background.png')">
+<section class="campaign-category">
     <div class="container">
         <div class="row">
             <div class="col-12 my-5">
@@ -155,111 +145,103 @@
                     <div class="tab-pane fade show active" id="pills-snack" role="tabpanel" aria-labelledby="pills-snack-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/snack.png" alt="零食">
+                                <img data-aos="zoom-in" src="/images/category/snack-2021.jpg" alt="零食">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>零食:</p>
                                 <p>二级品类参考:</p>
                                 <p>营养棒（能量/代餐/蛋白棒或球等）、谷物类零食、薯类零食、豆类零食、果蔬类零食、肉类零食、其他零食等</p>
-                                <p>品类解析将在创新寻访结束后更新。</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-beverage" role="tabpanel" aria-labelledby="pills-beverage-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/beverage.png" alt="饮料">
+                                <img data-aos="zoom-in" src="/images/category/beverage-2021.jpg" alt="饮料">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>饮料:</p>
                                 <p>二级品类参考:</p>
                                 <p>茶及茶饮料、咖啡及咖啡饮料、植物蛋白饮料、含酒精饮料、果蔬饮料、能量与功能饮料、调味水、气泡水与草本饮料、固体与代餐饮料等</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-dairy" role="tabpanel" aria-labelledby="pills-dairy-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/dairy.png" alt="乳及乳制品">
+                                <img data-aos="zoom-in" src="/images/category/dairy-2021.jpg" alt="乳及乳制品">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>乳及乳制品:</p>
                                 <p>二级品类参考:</p>
                                 <p>酸奶与酸奶饮品、牛奶和乳饮料、奶酪及奶酪制品、乳脂类产品、乳基零食、乳基甜点与冰淇淋等</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-candy" role="tabpanel" aria-labelledby="pills-candy-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/candy.png" alt="糖果&巧克力">
+                                <img data-aos="zoom-in" src="/images/category/candy-chocolate-2021.jpg" alt="糖果&巧克力">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>糖果&巧克力:</p>
                                 <p>二级品类参考:</p>
                                 <p>巧克力及巧克力制品、胶基糖果类、压片糖果类、硬质糖果类、果冻和布丁、其他糖果类等</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-bakery" role="tabpanel" aria-labelledby="pills-bakery-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/bakery.png" alt="烘焙">
+                                <img data-aos="zoom-in" src="/images/category/bakery-2021.jpg" alt="烘焙">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>烘焙:</p>
                                 <p>二级品类参考:</p>
                                 <p>饼干、蛋糕、糕点、点心、面包和面包制品、烘焙原料和混合拌料等</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-functional" role="tabpanel" aria-labelledby="pills-functional-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/functional.png" alt="功能性食品">
+                                <img data-aos="zoom-in" src="/images/category/functional-2021.jpg" alt="功能性食品">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>功能性食品:</p>
                                 <p>二级品类参考:</p>
                                 <p>婴幼儿配方食品、膳食补充剂、特殊人群膳食、特殊功能宣称食品、运动营养食品等</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-service" role="tabpanel" aria-labelledby="pills-service-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/service.png" alt="餐饮&餐饮+">
+                                <img data-aos="zoom-in" src="/images/category/food-service-2021.jpg" alt="餐饮&餐饮+">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>餐饮&餐饮+:</p>
                                 <p>二级品类参考:</p>
                                 <p>汤、酱、调味品、沙拉与净菜、鱼肉蛋制品、方便食品、早餐谷物、 其他餐饮原料等</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-taste" role="tabpanel" aria-labelledby="pills-taste-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/taste.png" alt="中国味道">
+                                <img data-aos="zoom-in" src="/images/category/chinese-taste-2021.jpg" alt="中国味道">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>中国味道:</p>
                                 <p>二级品类参考:</p>
                                 <p>地方特色食材深加工、中式糕点、伴手礼场景等</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="pills-experience" role="tabpanel" aria-labelledby="pills-experience-tab">
                         <div class="row justify-content-center">
                             <div class="col-lg-6 text-center">
-                                <img data-aos="zoom-in" src="/images/category/experience.png" alt="食物体验">
+                                <img data-aos="zoom-in" src="/images/category/food-experience-2021.jpg" alt="食物体验">
                             </div>
                             <div class="col-lg-6 mt-5">
                                 <p>食物体验:</p>
@@ -267,7 +249,6 @@
                                 <p>食“器”：食物器皿或工具，如何促进美食体验？</p>
                                 <p>食“用”：美食新用途，除了吃还能做游戏、做启蒙...？</p>
                                 <p>食“景”：美食服务体系，创造或改善服务场景？</p>
-                                <p>品类解析将在创新寻访结束后更新</p>
                             </div>
                         </div>
                     </div>
@@ -278,7 +259,7 @@
 </section>
 <section class="campaign-news">
     <div class="container">
-        <div class="row mt-100 mb-100">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="news-header text-center">
                     <h2>赛事新闻</h2>
@@ -303,7 +284,7 @@
         </div>
     </div>
 </section>
-<section class="campaign-judge" style="background-image: url('/images/category/background.png')">
+<section class="campaign-judge">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
@@ -335,7 +316,7 @@
 </section>
 <section class="campaign-partner">
     <div class="container">
-        <div class="row mt-100">
+        <div class="row">
             <div class="col-lg-12">
                 <div class="cooperator-header text-center">
                     <h2>大赛伙伴</h2>
@@ -490,7 +471,7 @@
 </section>
 <section class="campaign-school">
     <div class="container">
-        <div class="row mt-100 mb-100 text-center">
+        <div class="row text-center">
             <div class="school-header mb-5 col-lg-12">
                 <h2>参赛院校</h2>
             </div>
@@ -544,10 +525,6 @@
             //  轮播图参数设置
             $('.carousel').carousel({
                interval: 3000,
-            });
-            //   赛事新闻图片效果
-            $('.hover-scale img').hover(function() {
-
             });
         });
     </script>
