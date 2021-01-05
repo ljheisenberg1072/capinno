@@ -26,6 +26,7 @@ class UsersController extends AdminController
     {
         $grid = new Grid(new User());
 
+        $grid->model()->orderByDesc('created_at')->orderByDesc('id');
         $grid->column('id', 'ID')->sortable();
         $grid->column('name', '用户名');
         $grid->column('email', '邮箱');
@@ -56,6 +57,13 @@ class UsersController extends AdminController
         //  去掉批量操作
         $grid->disableBatchActions();
 
+        $grid->filter(function($filter) {
+            $filter->disableIdFilter();
+            $filter->like('name', '用户名');
+            $filter->like('email', '邮箱');
+            $filter->equal('grade', '身份')->select([1 => '学生', 2 => '评委']);
+        });
+
         return $grid;
     }
 
@@ -72,12 +80,12 @@ class UsersController extends AdminController
         $form->email('email', '邮箱')->creationRules(['required', 'string', 'email', 'max:255', "unique:users"])->updateRules(['required', 'string', 'email', 'max:255', "unique:users,email,{{id}}"]);
         $form->select('grade', '身份')->rules('required')->options([1 => '学生', 2 => '评委'])->when(2, function (Form $form) {
            $form->hasMany('judges', '评委信息', function (Form\NestedForm $form) {
-               $form->image('avatar', '头像')->rules('required|image|dimensions:min_width=300')->resize(500, null, function ($constraint) {
+               $form->image('avatar', '头像')->rules('required|image')->resize(500, null, function ($constraint) {
                    //  设定最大宽度，高度等比例缩放
                    $constraint->aspectRatio();
                    //  防止裁剪时图片尺寸变大
                    $constraint->upsize();
-               })->uniqueName()->move("uploads/judges/" . date("Y/m/d", time()))->help('推荐尺寸：500px * 500px，宽度不能小于300px');
+               })->uniqueName()->move("uploads/judges/" . date("Y/m/d", time()))->help('推荐尺寸：500px * 550px，宽度不能小于300px');
                $form->text('name', '姓名')->rules('required|max:255');
                $form->text('company', '就职单位')->rules('required|max:255');
                $form->text('title', '头衔')->rules('required|max:255');

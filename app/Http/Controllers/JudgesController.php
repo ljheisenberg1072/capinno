@@ -13,7 +13,7 @@ class JudgesController extends Controller
     {
         $judges = Judge::query()->where('on_show', true)
             ->orderBy('display_order')
-            ->orderByDesc('created_at')
+            ->orderBy('id')
             ->paginate(36);
 
         return view('judges.index', ['judges' => $judges]);

@@ -111,6 +111,16 @@ body {
     }
 }
 
+.btn-pink {
+    color: #fff;
+    background-color: #EF797A;
+    border-color: #EF797A;
+    &:hover {
+        color: #fff;
+        background-color: #ec5e60;
+    }
+}
+
 .common-bg {
     padding: 100px 0;
     background-color: #499CAE;

@@ -26,8 +26,6 @@ class JudgesController extends AdminController
     {
         $grid = new Grid(new Judge());
 
-        $grid->model()->orderByDesc('id');
-
         $grid->column('id', 'ID');
         $grid->column('name', '姓名');
         $grid->column('company', '就职单位');

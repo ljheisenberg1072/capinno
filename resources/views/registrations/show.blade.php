@@ -9,7 +9,7 @@
                     @include('registrations._nav')
                     <div class="row mt-4 mb-2">
                         <div class="col-md-12">
-                            <p style="color: #ff0000;">填写说明：为了顺利参赛，请填写真实信息，学生自行组队参赛。由队长进行注册账号、报名和提交团队作品。建议每队5人左右，8人为上限，不允许单人报名。 作者姓名默认为团队队长，联系信息以队长为准。</p>
+                            <p style="color: #ff0000;">填写说明：为了顺利参赛，请填写真实信息，学生自行组队参赛。由队长进行注册账号、报名和提交团队作品。建议每队5人左右，8人为上限，不允许单人报名。 队长姓名默认为团队队长，联系信息以队长为准。</p>
                         </div>
                     </div>
                     <div class="card">
@@ -215,7 +215,7 @@
                                     </div>
                                     <div class="form-group row text-center">
                                         <div class="col-12">
-                                            <a href="{{ route('registrations.edit', ['campaign' => $campaign->id, 'registration' => $registration->id]) }}" class="btn btn-primary">修改信息</a>
+                                            <a href="{{ route('registrations.edit', ['campaign' => $campaign->id, 'registration' => $registration->id]) }}" class="btn btn-primary btn-edit">修改信息</a>
                                         </div>
                                     </div>
                                 </div>
@@ -227,3 +227,49 @@
         </div>
     </section>
 @endsection
+@section('scriptsAfterJs')
+    <script>
+        $(document).ready(function() {
+            $('.stage').click(function() {
+                const date = new Date();
+                const submissionStartTime = $(this).attr('data-submission_start_time');
+                const submissionEndTime = $(this).attr('data-submission_end_time');
+                const stageName = $(this).attr('data-stage_name');
+                if (date.getTime() < Date.parse(submissionStartTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段还未开始！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+                if ($(this).hasClass('btn-create')) {
+                    if (date.getTime() > Date.parse(submissionEndTime)) {
+                        Swal.fire({
+                            title: stageName + '阶段已经结束，提交通道已关闭！',
+                            icon: 'error',
+                            showConfirmButton: false,
+                            timer: 3000,
+                        });
+                        return false;
+                    }
+                }
+            });
+            $('.btn-edit').click(function() {
+                const date = new Date();
+                const submissionEndTime = $('.btn-pink').next().attr('data-submission_end_time');
+                const stageName = $('.btn-pink').next().attr('data-stage_name');
+                if (date.getTime() > Date.parse(submissionEndTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段已经结束，不能修改报名信息！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+            });
+        });
+    </script>
+@stop

@@ -9,7 +9,7 @@
                     @include('registrations._nav')
                     <div class="row mt-4 mb-2">
                         <div class="col-md-12">
-                            <p style="color: #ff0000;">填写说明：为了顺利参赛，请填写真实信息，学生自行组队参赛。由队长进行注册账号、报名和提交团队作品。建议每队5人左右，8人为上限，不允许单人报名。 作者姓名默认为团队队长，联系信息以队长为准。</p>
+                            <p style="color: #ff0000;">填写说明：为了顺利参赛，请填写真实信息，学生自行组队参赛。由队长进行注册账号、报名和提交团队作品。建议每队5人左右，8人为上限，不允许单人报名。 队长姓名默认为团队队长，联系信息以队长为准。</p>
                         </div>
                     </div>
                     <div class="card">
@@ -273,9 +273,9 @@
                                     <div class="form-group row text-center">
                                         <div class="col-12">
                                             @if($registration->id)
-                                                <button type="submit" class="btn btn-primary">确认修改</button>
+                                                <button type="submit" class="btn btn-primary btn-edit">确认修改</button>
                                             @else
-                                                <button type="submit" class="btn btn-primary">确认提交</button>
+                                                <button type="submit" class="btn btn-primary btn-submit">确认提交</button>
                                             @endif
                                         </div>
                                     </div>
@@ -292,12 +292,64 @@
     <script>
         $(document).ready(function() {
             $('.stage').click(function() {
-                if($('.nav .btn-primary').hasClass('no-registered')) {
+                const date = new Date();
+                const submissionStartTime = $(this).attr('data-submission_start_time');
+                const submissionEndTime = $(this).attr('data-submission_end_time');
+                const stageName = $(this).attr('data-stage_name');
+                if (date.getTime() < Date.parse(submissionStartTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段还未开始！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+                if (date.getTime() > Date.parse(submissionEndTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段已经结束，提交通道已关闭！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+                if ($('.nav .btn-pink').hasClass('no-registered')) {
                     Swal.fire({
                        title: '您还没有报名，请先报名！',
                        icon: 'error',
                        showConfirmButton: false,
                        timer: 3000,
+                    });
+                    return false;
+                }
+            });
+            $('.btn-submit').click(function() {
+                const date = new Date();
+                const submissionEndTime = $('.btn-pink').next().attr('data-submission_end_time');
+                const stageName = $('.btn-pink').next().attr('data-stage_name');
+                //  判断比赛第一阶段时间
+                if (date.getTime() > Date.parse(submissionEndTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段已经结束，报名通道已关闭！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+            });
+            $('.btn-edit').click(function() {
+                const date = new Date();
+                const submissionEndTime = $('.btn-pink').next().attr('data-submission_end_time');
+                const stageName = $('.btn-pink').next().attr('data-stage_name');
+                //  判断比赛第一阶段时间
+                if (date.getTime() > Date.parse(submissionEndTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段已经结束，不能修改报名信息！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
                     });
                     return false;
                 }

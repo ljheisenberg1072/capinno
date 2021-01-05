@@ -116,6 +116,7 @@
 @section('scriptsAfterJs')
     <script>
         $(document).ready(function() {
+            //  文件上传处理
             const count = $('#countNum').val();
             let data = {};
             let obj = {};
@@ -269,11 +270,62 @@
                     $(this).css('visibility', 'hidden');
                 });
             }
+            // 比赛阶段按钮切换
+            $('.stage').click(function() {
+                const date = new Date();
+                const submissionStartTime = $(this).attr('data-submission_start_time');
+                const submissionEndTime = $(this).attr('data-submission_end_time');
+                const stageName = $(this).attr('data-stage_name');
+                if (date.getTime() < Date.parse(submissionStartTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段还未开始！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+                if ($(this).hasClass('btn-create')) {
+                    if (date.getTime() > Date.parse(submissionEndTime)) {
+                        Swal.fire({
+                            title: stageName + '阶段已经结束，提交通道已关闭！',
+                            icon: 'error',
+                            showConfirmButton: false,
+                            timer: 3000,
+                        });
+                        return false;
+                    }
+                }
+            });
             const worksName = $('#works_name');
             const worksDescription = $('#works_description');
             const worksCategory = $('#works_category');
             //  提交按钮相关
             $('.final-submission').click(function() {
+                // 如果阶段结束，不让提交
+                const date = new Date();
+                const submissionStartTime = $('.btn-pink').attr('data-submission_start_time');
+                const submissionEndTime = $('.btn-pink').attr('data-submission_end_time');
+                const stageName = $('.btn-pink').attr('data-stage_name');
+                if (date.getTime() < Date.parse(submissionStartTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段还未开始！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+                if (date.getTime() > Date.parse(submissionEndTime)) {
+                    Swal.fire({
+                        title: stageName + '阶段已经结束，提交通道已关闭！',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        timer: 3000,
+                    });
+                    return false;
+                }
+
                 if($('#div-name').css('display') != 'none') {
                     if(!worksName.val()) {
                         worksName.next().addClass('alert-show');
@@ -339,6 +391,6 @@
                 }
                 $('#submission-file').submit();
             });
-        })
+        });
     </script>
 @stop

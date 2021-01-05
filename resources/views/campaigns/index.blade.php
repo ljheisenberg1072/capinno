@@ -26,7 +26,7 @@
                                 <h5 class="card-title">{{ $campaign->campaign_name }}</h5>
                                 <p class="card-text">{{ $campaign->introduction }}</p>
                                 <p class="card-text"><small class="text-muted">{{ $campaign->created_at->diffForHumans() }}</small></p>
-                                <p class="float-right"><a class="btn btn-primary btn-sm" href="@if(in_array($campaign->id, $registrations)){{ route('registrations.show', ['campaign' => $campaign->id, 'registration' => $registrations[$campaign->id]]) }}@else{{ route('registrations.create', ['campaign' => $campaign->id]) }}@endif">我要参赛</a></p>
+                                <p class="float-right"><a class="btn btn-pink btn-sm" href="@if(array_key_exists($campaign->id, $registrations)){{ route('registrations.show', ['campaign' => $campaign->id, 'registration' => $registrations[$campaign->id]]) }}@else{{ route('registrations.create', ['campaign' => $campaign->id]) }}@endif">我要参赛</a></p>
                             </div>
                         </div>
                     </div>

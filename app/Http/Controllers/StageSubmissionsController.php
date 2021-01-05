@@ -25,7 +25,7 @@ class StageSubmissionsController extends Controller
         //  根据大赛ID获取比赛第一个节点
         $firstStageId = CampaignStage::query()->where('campaign_id', $campaignId)->value('id');
         //  根据大赛ID获取比赛节点名称
-        $campaignStages = CampaignStage::query()->where('campaign_id', $campaignId)->get(['id', 'stage_name']);
+        $campaignStages = CampaignStage::query()->where('campaign_id', $campaignId)->get();
         //  根据当前用户ID查找报名ID和大赛ID
         $registrations = Registration::query()->where('user_id', Auth::user()->id)->pluck('id', 'campaign_id')->toArray();
         foreach($campaignStages as $k => $campaignStage) {
@@ -76,6 +76,8 @@ class StageSubmissionsController extends Controller
 
     public function show(Campaign $campaign, CampaignStage $campaign_stage, StageSubmission $stage_submission)
     {
+        $this->authorize('own', $stage_submission);
+
         //  根据当前比赛节点获取对应大赛ID
         $campaignId = CampaignStage::query()->where('id', $campaign_stage->id)->pluck('campaign_id');
         //  根据大赛ID获取比赛类目
@@ -83,7 +85,7 @@ class StageSubmissionsController extends Controller
         //  根据大赛ID获取比赛第一个节点
         $firstStageId = CampaignStage::query()->where('campaign_id', $campaignId)->value('id');
         //  根据大赛ID获取比赛节点名称
-        $campaignStages = CampaignStage::query()->where('campaign_id', $campaignId)->get(['id', 'stage_name']);
+        $campaignStages = CampaignStage::query()->where('campaign_id', $campaignId)->get();
         //  根据当前用户ID查找报名ID和大赛ID
         $registrations = Registration::query()->where('user_id', Auth::user()->id)->pluck('id', 'campaign_id')->toArray();
         foreach($campaignStages as $k => $campaignStage) {
@@ -102,6 +104,8 @@ class StageSubmissionsController extends Controller
 
     public function edit(Campaign $campaign, CampaignStage $campaign_stage, StageSubmission $stage_submission)
     {
+        $this->authorize('own', $stage_submission);
+
         //  根据当前比赛节点获取对应大赛ID
         $campaignId = CampaignStage::query()->where('id', $campaign_stage->id)->pluck('campaign_id');
         //  根据大赛ID获取比赛类目
@@ -109,7 +113,7 @@ class StageSubmissionsController extends Controller
         //  根据大赛ID获取比赛第一个节点
         $firstStageId = CampaignStage::query()->where('campaign_id', $campaignId)->value('id');
         //  根据大赛ID获取比赛节点名称
-        $campaignStages = CampaignStage::query()->where('campaign_id', $campaignId)->get(['id', 'stage_name']);
+        $campaignStages = CampaignStage::query()->where('campaign_id', $campaignId)->get();
         //  根据当前用户ID查找报名ID和大赛ID
         $registrations = Registration::query()->where('user_id', Auth::user()->id)->pluck('id', 'campaign_id')->toArray();
         foreach($campaignStages as $k => $campaignStage) {
@@ -128,6 +132,8 @@ class StageSubmissionsController extends Controller
 
     public function update(Campaign $campaign, CampaignStage $campaign_stage, StageSubmission $stage_submission, StageSubmissionRequest $request)
     {
+        $this->authorize('own', $stage_submission);
+
         if($request->input('works_name')) {
             $data['works_name'] = $request->input('works_name');
         }

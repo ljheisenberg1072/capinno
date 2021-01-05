@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('title', $news_article->title)
 @section('content')
+    <section class="common-bg">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h2>动态详情</h2>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="news_articles-area">
         <div class="container">
             <div class="row justify-content-center">
